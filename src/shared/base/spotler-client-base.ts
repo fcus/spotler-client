@@ -19,16 +19,23 @@ export abstract class SpotlerClientBase {
         return this.request({
             endpoint: args.endpoint,
             method: 'GET',
-            params: args.params,
+            query: args.query,
         });
     }
 
     private async request(args: SpotlerClientRequestArgs) {
         return new Promise((resolve, reject) => {
+            const query = args.query
+                ? '?' +
+                  Object.entries(args.query)
+                      .map(([key, value]) => `${key}=${value}`)
+                      .join('&')
+                : '';
+
             const oauthData = OAuth.autorize(
                 {
                     method: args.method,
-                    url: `https://${this.baseUrl}/${this.apiPath}/${args.endpoint}`,
+                    url: `https://${this.baseUrl}/${this.apiPath}/${args.endpoint}${query}`,
                 },
                 {
                     consumer: {
@@ -45,7 +52,7 @@ export abstract class SpotlerClientBase {
                 },
                 hostname: this.baseUrl,
                 method: args.method,
-                path: `/${this.apiPath}/${args.endpoint}`,
+                path: `/${this.apiPath}/${args.endpoint}${query}`,
                 port: 443,
             };
 

@@ -1,4 +1,4 @@
 export interface SpotlerClientGetArgs {
     endpoint: string;
-    params?: { [keyof: string]: string };
+    query?: { [keyof: string]: string };
 }
