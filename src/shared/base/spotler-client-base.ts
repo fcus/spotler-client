@@ -1,5 +1,6 @@
 import { OAuth } from '@fcus/oauth-1-header';
 import { request, RequestOptions } from 'https';
+import QS from 'querystring';
 import { SpotlerClientConfig } from '../config/spotler-client-config';
 import { SpotlerClientGetArgs } from './spotler-client-get-args.interface';
 import { SpotlerClientRequestArgs } from './spotler-client-request-args.interface';
@@ -19,7 +20,7 @@ export abstract class SpotlerClientBase {
         return this.request({
             endpoint: args.endpoint,
             method: 'GET',
-            params: args.params,
+            query: args.query,
         });
     }
 
@@ -29,6 +30,7 @@ export abstract class SpotlerClientBase {
                 {
                     method: args.method,
                     url: `https://${this.baseUrl}/${this.apiPath}/${args.endpoint}`,
+                    query: args.query,
                 },
                 {
                     consumer: {
@@ -38,6 +40,8 @@ export abstract class SpotlerClientBase {
                 },
             );
 
+            const query = args.query ? `?${QS.stringify(args.query)}` : '';
+
             const options: RequestOptions = {
                 headers: {
                     Accept: 'application/json',
@@ -45,7 +49,7 @@ export abstract class SpotlerClientBase {
                 },
                 hostname: this.baseUrl,
                 method: args.method,
-                path: `/${this.apiPath}/${args.endpoint}`,
+                path: `/${this.apiPath}/${args.endpoint}${query}`,
                 port: 443,
             };
 
