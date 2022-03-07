@@ -1,6 +1,6 @@
+import { OAuth } from '@fcus/oauth-1-header';
 import { request, RequestOptions } from 'https';
 import { SpotlerClientConfig } from '../config/spotler-client-config';
-import { OAuth } from '../oauth';
 import { SpotlerClientGetArgs } from './spotler-client-get-args.interface';
 import { SpotlerClientRequestArgs } from './spotler-client-request-args.interface';
 
@@ -25,7 +25,7 @@ export abstract class SpotlerClientBase {
 
     private async request(args: SpotlerClientRequestArgs) {
         return new Promise((resolve, reject) => {
-            const oauthData = OAuth.autorize(
+            const oauthData = OAuth.authorize(
                 {
                     method: args.method,
                     url: `https://${this.baseUrl}/${this.apiPath}/${args.endpoint}`,
@@ -41,7 +41,7 @@ export abstract class SpotlerClientBase {
             const options: RequestOptions = {
                 headers: {
                     Accept: 'application/json',
-                    Authorization: oauthData.toHeader(),
+                    Authorization: oauthData,
                 },
                 hostname: this.baseUrl,
                 method: args.method,
