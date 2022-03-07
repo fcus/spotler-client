@@ -1,11 +1,11 @@
-import { SpotlerClientBase } from '../../shared/base/spotler-client-base';
-import { SpotlerClientConfig } from '../../shared/config/spotler-client-config';
+import { SpotlerBaseRepository } from '../../shared/base/spotler-base.repository';
+import { SpotlerConfig } from '../../shared/config/spotler-config';
 import { SpotlerMailing } from './spotler-mailing';
 
-export class SpotlerMailingRepository extends SpotlerClientBase {
+export class SpotlerMailingRepository extends SpotlerBaseRepository {
     protected readonly resource = 'mailing';
 
-    constructor(protected config: SpotlerClientConfig) {
+    constructor(protected config: SpotlerConfig) {
         super();
     }
 

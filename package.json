@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf dist && tsc",
+    "crawl-api": "ts-node ./misc/crawl-api.ts",
+    "generate-files": "ts-node ./misc/generate-files.ts",
     "setup": "cp .env-example .env",
     "test": "ava"
   },
@@ -20,10 +22,14 @@
   },
   "homepage": "https://github.com/fcus/spotler-client#readme",
   "devDependencies": {
+    "@types/lodash": "4.14.179",
     "@types/node": "15.12.2",
     "@types/uuid": "8.3.0",
     "ava": "4.0.1",
+    "axios": "0.26.0",
     "dotenv": "10.0.0",
+    "lodash": "4.17.21",
+    "ts-morph": "14.0.0",
     "ts-node": "10.0.0",
     "typescript": "4.3.2"
   },

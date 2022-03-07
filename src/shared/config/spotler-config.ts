@@ -1,10 +1,13 @@
-import { SpotlerClientConfigConstructorArgs } from './spotler-client-config-constructor-args.interface';
+export interface SpotlerConfigConstructorArgs {
+    consumerKey: string;
+    consumerSecret: string;
+}
 
-export class SpotlerClientConfig {
+export class SpotlerConfig {
     public readonly consumerKey: string;
     public readonly consumerSecret: string;
 
-    constructor(args: SpotlerClientConfigConstructorArgs) {
+    constructor(args: SpotlerConfigConstructorArgs) {
         if (!(args.consumerKey && args.consumerSecret)) {
             throw new Error('Consumer key and consumer secret are required');
         }

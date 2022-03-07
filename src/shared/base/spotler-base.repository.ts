@@ -1,11 +1,27 @@
 import { request, RequestOptions } from 'https';
-import { SpotlerClientConfig } from '../config/spotler-client-config';
+import { SpotlerConfig } from '../config/spotler-config';
+import { HttpMethod } from '../http-method.type';
 import { OAuth } from '../oauth';
-import { SpotlerClientGetArgs } from './spotler-client-get-args.interface';
-import { SpotlerClientRequestArgs } from './spotler-client-request-args.interface';
 
-export abstract class SpotlerClientBase {
-    protected abstract readonly config: SpotlerClientConfig;
+export interface SpotlerBaseRepositoryArgs {
+    endpoint: string;
+    params?: { [keyof: string]: any };
+}
+
+export interface SpotlerBaseRepositoryPostPutArgs<T>
+    extends SpotlerBaseRepositoryArgs {
+    body: T;
+}
+
+export interface SpotlerClientRequestArgs<T> {
+    body?: T;
+    endpoint: string;
+    method: HttpMethod;
+    params?: { [keyof: string]: string };
+}
+
+export abstract class SpotlerBaseRepository {
+    protected abstract readonly config: SpotlerConfig;
     protected abstract readonly resource: string;
 
     protected readonly baseUrl = 'restapi.mailplus.nl';
@@ -15,7 +31,15 @@ export abstract class SpotlerClientBase {
         return `integrationservice-${this.version}/${this.resource}`;
     }
 
-    protected async get(args: SpotlerClientGetArgs) {
+    protected async delete(args: SpotlerBaseRepositoryArgs) {
+        return this.request({
+            endpoint: args.endpoint,
+            method: 'DELETE',
+            params: args.params,
+        });
+    }
+
+    protected async get(args: SpotlerBaseRepositoryArgs) {
         return this.request({
             endpoint: args.endpoint,
             method: 'GET',
@@ -23,7 +47,33 @@ export abstract class SpotlerClientBase {
         });
     }
 
-    private async request(args: SpotlerClientRequestArgs) {
+    protected async patch<T>(args: SpotlerBaseRepositoryPostPutArgs<T>) {
+        return this.request({
+            endpoint: args.endpoint,
+            method: 'PATCH',
+            params: args.params,
+        });
+    }
+
+    protected async post<T>(args: SpotlerBaseRepositoryPostPutArgs<T>) {
+        return this.request({
+            body: args.body,
+            endpoint: args.endpoint,
+            method: 'POST',
+            params: args.params,
+        });
+    }
+
+    protected async put<T>(args: SpotlerBaseRepositoryPostPutArgs<T>) {
+        return this.request({
+            body: args.body,
+            endpoint: args.endpoint,
+            method: 'PUT',
+            params: args.params,
+        });
+    }
+
+    private async request<T>(args: SpotlerClientRequestArgs<T>) {
         return new Promise((resolve, reject) => {
             const oauthData = OAuth.autorize(
                 {
