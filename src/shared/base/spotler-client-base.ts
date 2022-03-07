@@ -26,11 +26,14 @@ export abstract class SpotlerClientBase {
 
     private async request(args: SpotlerClientRequestArgs) {
         return new Promise((resolve, reject) => {
+            const queryString = args.query
+                ? `?${QS.stringify(args.query)}`
+                : '';
+
             const oauthData = OAuth.authorize(
                 {
                     method: args.method,
-                    url: `https://${this.baseUrl}/${this.apiPath}/${args.endpoint}`,
-                    query: args.query,
+                    url: `https://${this.baseUrl}/${this.apiPath}/${args.endpoint}${queryString}`,
                 },
                 {
                     consumer: {
@@ -40,8 +43,6 @@ export abstract class SpotlerClientBase {
                 },
             );
 
-            const query = args.query ? `?${QS.stringify(args.query)}` : '';
-
             const options: RequestOptions = {
                 headers: {
                     Accept: 'application/json',
@@ -49,7 +50,7 @@ export abstract class SpotlerClientBase {
                 },
                 hostname: this.baseUrl,
                 method: args.method,
-                path: `/${this.apiPath}/${args.endpoint}${query}`,
+                path: `/${this.apiPath}/${args.endpoint}${queryString}`,
                 port: 443,
             };
 
