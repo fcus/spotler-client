@@ -32,15 +32,22 @@ interface Parameter {
     allowMultiple: false;
 }
 
-interface Model {}
+interface Model {
+    properties: { [keyof: string]: Property };
+}
+
+interface Property {
+    ref?: string;
+    description: string;
+    type: string;
+    items: { [keyof: string]: { ref: string; type: string } };
+}
 
 interface Item {
     apis: Api[];
     models: { [keyof: string]: Model };
     resourcePath: string;
 }
-
-interface Entity {}
 
 interface Repository {
     methods: Method[];
@@ -60,15 +67,19 @@ function create() {
     const dir = 'lib';
 
     const items: Item[] = JSON.parse(
-        fs.readFileSync(path.resolve(__dirname, '..', 'api.json'), {
-            encoding: 'utf-8',
-        }),
+        fs
+            .readFileSync(path.resolve(__dirname, '..', 'api.json'), {
+                encoding: 'utf-8',
+            })
+            .replace(/\$/gm, ''),
     );
+
+    console.log(items);
 
     /**
      * Map to our interface
      */
-    const entities: Entity[] = [];
+    const models: { [keyof: string]: Model } = {};
     const repositories: Repository[] = [];
 
     for (const item of items) {
@@ -93,7 +104,7 @@ function create() {
         }
 
         for (const [modelKey, modelValue] of Object.entries(item.models)) {
-            // console.log(modelKey);
+            models[modelKey] = modelValue;
         }
 
         repository.methods.sort((a, b) => (a.name > b.name ? 1 : -1));
@@ -222,6 +233,59 @@ function create() {
         });
 
         specFile.saveSync();
+    }
+
+    const modelDirPath = path.resolve(__dirname, '..', 'src', 'model');
+
+    if (!fs.existsSync(modelDirPath)) {
+        fs.mkdirSync(modelDirPath);
+    }
+
+    for (const [entityName, entityValues] of Object.entries(models)) {
+        const modelFilePath = path.resolve(
+            modelDirPath,
+            `spotler-${kebabCase(entityName)}.ts`,
+        );
+
+        if (!fs.existsSync(modelFilePath)) {
+            fs.writeFileSync(modelFilePath, '');
+        }
+
+        const modelFile = project.createSourceFile(modelFilePath, '', {
+            overwrite: true,
+        });
+        const modelClass = modelFile
+            .addClass({
+                isExported: true,
+                name: upperFirst(camelCase(entityName)),
+            })
+            .addProperties(
+                (Object.entries(entityValues.properties) ?? []).map(
+                    ([name, properties]) => {
+                        let type = '';
+
+                        if (properties.ref) {
+                            console.log(properties.ref);
+                        }
+
+                        if (properties.type === 'array') {
+                            type = `${
+                                properties.items.ref?.type ??
+                                properties.items.type
+                            }[]`;
+                        } else {
+                            type = properties.type ?? properties.ref;
+                        }
+
+                        return {
+                            name,
+                            type,
+                        };
+                    },
+                ),
+            );
+
+        modelFile.save();
     }
 }
 
