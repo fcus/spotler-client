@@ -1,11 +1,12 @@
+import { OAuth } from '@fcus/oauth-1-header';
 import { request, RequestOptions } from 'https';
+import QS from 'querystring';
 import { SpotlerConfig } from '../config/spotler-config';
 import { HttpMethod } from '../http-method.type';
-import { OAuth } from '../oauth';
 
 export interface SpotlerBaseRepositoryArgs {
     endpoint: string;
-    params?: { [keyof: string]: any };
+    query?: { [keyof: string]: any };
 }
 
 export interface SpotlerBaseRepositoryPostPutArgs<T>
@@ -17,7 +18,7 @@ export interface SpotlerClientRequestArgs<T> {
     body?: T;
     endpoint: string;
     method: HttpMethod;
-    params?: { [keyof: string]: string };
+    query?: { [keyof: string]: string };
 }
 
 export abstract class SpotlerBaseRepository {
@@ -35,7 +36,7 @@ export abstract class SpotlerBaseRepository {
         return this.request({
             endpoint: args.endpoint,
             method: 'DELETE',
-            params: args.params,
+            query: args.query,
         });
     }
 
@@ -43,7 +44,7 @@ export abstract class SpotlerBaseRepository {
         return this.request({
             endpoint: args.endpoint,
             method: 'GET',
-            params: args.params,
+            query: args.query,
         });
     }
 
@@ -51,7 +52,7 @@ export abstract class SpotlerBaseRepository {
         return this.request({
             endpoint: args.endpoint,
             method: 'PATCH',
-            params: args.params,
+            query: args.query,
         });
     }
 
@@ -60,7 +61,7 @@ export abstract class SpotlerBaseRepository {
             body: args.body,
             endpoint: args.endpoint,
             method: 'POST',
-            params: args.params,
+            query: args.query,
         });
     }
 
@@ -69,16 +70,17 @@ export abstract class SpotlerBaseRepository {
             body: args.body,
             endpoint: args.endpoint,
             method: 'PUT',
-            params: args.params,
+            query: args.query,
         });
     }
 
     private async request<T>(args: SpotlerClientRequestArgs<T>) {
         return new Promise((resolve, reject) => {
-            const oauthData = OAuth.autorize(
+            const oauthData = OAuth.authorize(
                 {
                     method: args.method,
                     url: `https://${this.baseUrl}/${this.apiPath}/${args.endpoint}`,
+                    query: args.query,
                 },
                 {
                     consumer: {
@@ -88,14 +90,16 @@ export abstract class SpotlerBaseRepository {
                 },
             );
 
+            const query = args.query ? `?${QS.stringify(args.query)}` : '';
+
             const options: RequestOptions = {
                 headers: {
                     Accept: 'application/json',
-                    Authorization: oauthData.toHeader(),
+                    Authorization: oauthData,
                 },
                 hostname: this.baseUrl,
                 method: args.method,
-                path: `/${this.apiPath}/${args.endpoint}`,
+                path: `/${this.apiPath}/${args.endpoint}${query}`,
                 port: 443,
             };
 
