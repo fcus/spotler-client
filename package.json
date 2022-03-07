@@ -30,7 +30,7 @@
     "typescript": "4.3.2"
   },
   "dependencies": {
-    "@fcus/oauth-1-header": "^0.1.0",
+    "@fcus/oauth-1-header": "^0.2.0",
     "uuid": "8.3.2"
   },
   "ava": {

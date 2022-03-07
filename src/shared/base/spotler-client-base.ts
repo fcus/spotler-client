@@ -1,5 +1,6 @@
 import { OAuth } from '@fcus/oauth-1-header';
 import { request, RequestOptions } from 'https';
+import QS from 'querystring';
 import { SpotlerClientConfig } from '../config/spotler-client-config';
 import { SpotlerClientGetArgs } from './spotler-client-get-args.interface';
 import { SpotlerClientRequestArgs } from './spotler-client-request-args.interface';
@@ -25,17 +26,11 @@ export abstract class SpotlerClientBase {
 
     private async request(args: SpotlerClientRequestArgs) {
         return new Promise((resolve, reject) => {
-            const query = args.query
-                ? '?' +
-                  Object.entries(args.query)
-                      .map(([key, value]) => `${key}=${value}`)
-                      .join('&')
-                : '';
-
             const oauthData = OAuth.authorize(
                 {
                     method: args.method,
-                    url: `https://${this.baseUrl}/${this.apiPath}/${args.endpoint}${query}`,
+                    url: `https://${this.baseUrl}/${this.apiPath}/${args.endpoint}`,
+                    query: args.query,
                 },
                 {
                     consumer: {
@@ -44,6 +39,8 @@ export abstract class SpotlerClientBase {
                     },
                 },
             );
+
+            const query = args.query ? `?${QS.stringify(args.query)}` : '';
 
             const options: RequestOptions = {
                 headers: {
