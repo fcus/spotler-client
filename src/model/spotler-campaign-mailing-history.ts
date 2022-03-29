@@ -1,6 +1,6 @@
 export class CampaignMailingHistory {
-    campaignMailing;
-    campaignSubscriptionId: integer;
+    campaignMailing: CampaignMailing;
+    campaignSubscriptionId: number;
     sentDate: string;
     opened: boolean;
     clicked: boolean;

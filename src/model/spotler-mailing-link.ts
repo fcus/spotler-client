@@ -1,5 +1,5 @@
 export class MailingLink {
-    id: integer;
+    id: number;
     name: string;
     url: string;
     code: string;

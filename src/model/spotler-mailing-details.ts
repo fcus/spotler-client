@@ -4,9 +4,9 @@ export class MailingDetails {
     scheduledStartDate: string;
     type: string;
     archiveLink: string;
-    sentCount: integer;
+    sentCount: number;
     sender: string;
     targetGroup: string;
-    message;
+    message: Message;
     links: undefined[];
 }

@@ -1,9 +1,9 @@
 export class Audience {
-    createDate;
-    changeDate;
-    lastContactAddedAt;
-    lastContactRemovedAt;
-    lastSyncDate;
+    createDate: string;
+    changeDate: string;
+    lastContactAddedAt: string;
+    lastContactRemovedAt: string;
+    lastSyncDate: string;
     externalId: string;
     description: string;
     name: string;

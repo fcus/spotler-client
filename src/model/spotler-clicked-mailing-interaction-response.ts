@@ -1,4 +1,4 @@
 export class ClickedMailingInteractionResponse {
-    paging;
+    paging: Paging;
     interactions: undefined[];
 }

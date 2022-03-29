@@ -1,4 +1,4 @@
 export class MailingHistoryResponse {
-    paging;
+    paging: Paging;
     mailingHistories: undefined[];
 }

@@ -1,18 +1,18 @@
 export class TrendReport {
-    id: integer;
+    id: number;
     name: string;
     enabled: boolean;
-    target;
+    target: TrendReportTarget;
     createDate: string;
     folderId: string;
-    contentType;
+    contentType: TrendReportContentType;
     reportingEnabled: boolean;
-    sendDays: integer;
-    sendHours: integer;
-    sendMinutes: integer;
+    sendDays: number;
+    sendHours: number;
+    sendMinutes: number;
     reportEmail1: string;
     reportEmail2: string;
     reportEmail3: string;
     author: string;
-    mailingCount: integer;
+    mailingCount: number;
 }

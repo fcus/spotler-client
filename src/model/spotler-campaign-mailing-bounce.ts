@@ -1,6 +1,6 @@
 export class CampaignMailingBounce {
-    contactIdentifier;
+    contactIdentifier: ContactIdentifier;
     bounceDate: string;
     type: string;
-    campaignSubscriptionId: integer;
+    campaignSubscriptionId: number;
 }

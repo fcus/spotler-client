@@ -1,4 +1,4 @@
 export class Uuid {
-    leastSignificantBits: integer;
-    mostSignificantBits: integer;
+    leastSignificantBits: number;
+    mostSignificantBits: number;
 }

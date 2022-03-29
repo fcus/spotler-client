@@ -1,4 +1,4 @@
 export class CampaignMailingHistoryResponse {
-    paging;
+    paging: Paging;
     campaignMailingHistories: undefined[];
 }

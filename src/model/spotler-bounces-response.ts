@@ -1,4 +1,4 @@
 export class BouncesResponse {
-    paging;
+    paging: Paging;
     bounces: undefined[];
 }

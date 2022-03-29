@@ -1,9 +1,9 @@
 export class MailingInteractionBounce {
     bounceType: string;
     encryptedMailingId: string;
-    trendReportId: integer;
+    trendReportId: number;
     externalContactId: string;
     changeDate: string;
     date: string;
-    id: integer;
+    id: number;
 }

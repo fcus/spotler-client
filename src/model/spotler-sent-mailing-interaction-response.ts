@@ -1,4 +1,4 @@
 export class SentMailingInteractionResponse {
-    paging;
+    paging: Paging;
     interactions: undefined[];
 }

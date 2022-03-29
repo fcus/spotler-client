@@ -1,3 +1,3 @@
 export class MailingRecipient {
-    contactIdentifier;
+    contactIdentifier: ContactIdentifier;
 }

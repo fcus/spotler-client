@@ -1,4 +1,4 @@
 export class MailingOpenResponse {
-    paging;
+    paging: Paging;
     opens: undefined[];
 }

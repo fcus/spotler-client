@@ -1,5 +1,5 @@
 export class SetPropertyEntry {
-    bit: integer;
+    bit: number;
     description: string;
-    rank: integer;
+    rank: number;
 }

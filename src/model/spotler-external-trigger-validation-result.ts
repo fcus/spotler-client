@@ -1,4 +1,4 @@
 export class ExternalTriggerValidationResult {
-    result;
+    result: ExternalTriggerResponse;
     automationResults: undefined[];
 }

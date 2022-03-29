@@ -4,5 +4,5 @@ export class FormRequest {
     extraParams: string;
     outputFormat: string;
     outputMode: string;
-    prefilledValues;
+    prefilledValues: Map[string,Array[string]];
 }

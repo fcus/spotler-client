@@ -1,6 +1,6 @@
 export class CampaignMailingClick {
-    contactIdentifier;
+    contactIdentifier: ContactIdentifier;
     clickDate: string;
-    linkId: integer;
-    campaignSubscriptionId: integer;
+    linkId: number;
+    campaignSubscriptionId: number;
 }

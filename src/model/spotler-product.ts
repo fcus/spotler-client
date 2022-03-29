@@ -12,8 +12,8 @@ export class Product {
     brand: string;
     ratingImageUrl: string;
     reviewLink: string;
-    creationDate;
-    changeDate;
+    creationDate: string;
+    changeDate: string;
     addToCartLink: string;
     imageLargeUrl: string;
     ratingValue: string;
@@ -21,6 +21,6 @@ export class Product {
     stock: string;
     deleted: boolean;
     visible: boolean;
-    customProperties;
+    customProperties: Map[string,Object];
     specifications: undefined[];
 }

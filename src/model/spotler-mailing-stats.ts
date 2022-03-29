@@ -1,16 +1,16 @@
 export class MailingStats {
-    sentCount: integer;
-    acceptedCount: integer;
-    openCount: integer;
-    openRenderedCount: integer;
-    clickCount: integer;
-    hardbounceCount: integer;
-    softbounceCount: integer;
-    notRetainedAfterBounceCount: integer;
-    conversionClickCount: integer;
-    unsubscribeCount: integer;
-    toWebshopCount: integer;
-    shoppingcartCreatedCount: integer;
-    shoppingcartConvertedCount: integer;
-    conversionValue: integer;
+    sentCount: number;
+    acceptedCount: number;
+    openCount: number;
+    openRenderedCount: number;
+    clickCount: number;
+    hardbounceCount: number;
+    softbounceCount: number;
+    notRetainedAfterBounceCount: number;
+    conversionClickCount: number;
+    unsubscribeCount: number;
+    toWebshopCount: number;
+    shoppingcartCreatedCount: number;
+    shoppingcartConvertedCount: number;
+    conversionValue: number;
 }

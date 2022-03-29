@@ -1,4 +1,4 @@
 export class BouncedMailingInteractionResponse {
-    paging;
+    paging: Paging;
     interactions: undefined[];
 }

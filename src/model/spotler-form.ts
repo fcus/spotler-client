@@ -1,5 +1,5 @@
 export class Form {
-    id: integer;
+    id: number;
     name: string;
     formSubType: string;
     formState: string;

@@ -1,4 +1,4 @@
 export class FormHistoryResponse {
-    paging;
+    paging: Paging;
     formHistories: undefined[];
 }

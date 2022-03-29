@@ -1,4 +1,4 @@
 export class MailingClickResponse {
-    paging;
+    paging: Paging;
     clicks: undefined[];
 }

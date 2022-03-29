@@ -1,5 +1,5 @@
 export class MailingHistory {
-    mailing;
+    mailing: Mailing;
     sentDate: string;
     opened: boolean;
     clicked: boolean;

@@ -1,6 +1,6 @@
 export class TemporaryList {
     externalTemporaryListId: string;
     name: string;
-    createdAt;
+    createdAt: string;
     type: string;
 }

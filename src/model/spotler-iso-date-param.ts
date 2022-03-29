@@ -1,3 +1,3 @@
 export class IsoDateParam {
-    date;
+    date: string;
 }

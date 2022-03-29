@@ -1,4 +1,4 @@
 export class TrendReportResponse {
-    paging;
+    paging: Paging;
     trendReports: undefined[];
 }

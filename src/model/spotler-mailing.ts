@@ -4,5 +4,5 @@ export class Mailing {
     scheduledStartDate: string;
     type: string;
     archiveLink: string;
-    sentCount: integer;
+    sentCount: number;
 }

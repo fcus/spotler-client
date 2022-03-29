@@ -1,10 +1,10 @@
 export class Contact {
     externalId: string;
-    created;
+    created: string;
     encryptedId: string;
     testGroup: boolean;
-    lastChanged;
+    lastChanged: string;
     temporary: boolean;
-    properties;
+    properties: Map[string,Object];
     channels: undefined[];
 }

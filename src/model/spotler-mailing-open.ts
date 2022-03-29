@@ -1,4 +1,4 @@
 export class MailingOpen {
-    contactIdentifier;
+    contactIdentifier: ContactIdentifier;
     openDate: string;
 }

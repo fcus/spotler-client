@@ -1,4 +1,4 @@
 export class ContactsResponse {
-    paging;
+    paging: Paging;
     contacts: undefined[];
 }

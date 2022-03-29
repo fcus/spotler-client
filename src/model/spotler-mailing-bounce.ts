@@ -1,5 +1,5 @@
 export class MailingBounce {
-    contactIdentifier;
+    contactIdentifier: ContactIdentifier;
     bounceDate: string;
     type: string;
 }

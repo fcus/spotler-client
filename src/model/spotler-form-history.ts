@@ -1,6 +1,6 @@
 export class FormHistory {
-    form;
-    formResultId: integer;
+    form: Form;
+    formResultId: number;
     submitDate: string;
     completed: boolean;
 }

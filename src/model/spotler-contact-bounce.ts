@@ -1,6 +1,6 @@
 export class ContactBounce {
-    date;
-    type;
-    contact;
+    date: string;
+    type: Type;
+    contact: Contact;
     encryptedActId: string;
 }

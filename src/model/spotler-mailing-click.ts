@@ -1,5 +1,5 @@
 export class MailingClick {
-    contactIdentifier;
+    contactIdentifier: ContactIdentifier;
     clickDate: string;
-    linkId: integer;
+    linkId: number;
 }

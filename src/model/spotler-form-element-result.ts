@@ -1,6 +1,6 @@
 export class FormElementResult {
-    rank: integer;
-    fieldId: integer;
+    rank: number;
+    fieldId: number;
     description: string;
     answer: string[];
 }

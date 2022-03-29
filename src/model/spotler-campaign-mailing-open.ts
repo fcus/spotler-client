@@ -1,5 +1,5 @@
 export class CampaignMailingOpen {
-    campaignSubscriptionId: integer;
+    campaignSubscriptionId: number;
     openDate: string;
-    contactIdentifier;
+    contactIdentifier: ContactIdentifier;
 }

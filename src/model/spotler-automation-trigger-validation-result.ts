@@ -1,4 +1,4 @@
 export class AutomationTriggerValidationResult {
     automationId: string;
-    result;
+    result: AutomationTriggerValidationResponse;
 }

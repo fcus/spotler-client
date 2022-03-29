@@ -1,5 +1,5 @@
 export class CampaignMailingRecipient {
-    contactIdentifier;
+    contactIdentifier: ContactIdentifier;
     sendDate: string;
-    campaignSubscriptionId: integer;
+    campaignSubscriptionId: number;
 }

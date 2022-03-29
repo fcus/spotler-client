@@ -1,5 +1,5 @@
 export class AddContactResponse {
     externalId: string;
-    code;
+    code: ContactResponseCode;
     message: string;
 }

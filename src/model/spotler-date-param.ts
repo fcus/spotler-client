@@ -1,3 +1,3 @@
 export class DateParam {
-    date;
+    date: string;
 }

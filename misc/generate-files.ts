@@ -269,12 +269,14 @@ function create() {
                         }
 
                         if (properties.type === 'array') {
-                            type = `${
+                            type = `${replaceType(
                                 properties.items.ref?.type ??
-                                properties.items.type
-                            }[]`;
+                                    properties.items.type,
+                            )}[]`;
                         } else {
-                            type = properties.type ?? properties.ref;
+                            type = replaceType(
+                                properties.ref ?? properties.type,
+                            );
                         }
 
                         return {
@@ -289,10 +291,13 @@ function create() {
     }
 }
 
-function replaceType(type: string) {
+function replaceType<T>(type: T | string) {
     switch (type) {
         case 'integer':
             return 'number';
+
+        case 'date-time':
+            return 'string';
 
         case 'ISODateParam':
             return 'string';

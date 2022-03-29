@@ -1,4 +1,4 @@
 export class OrderRequest {
-    order;
+    order: Order;
     update: boolean;
 }

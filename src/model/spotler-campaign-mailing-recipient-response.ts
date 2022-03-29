@@ -1,4 +1,4 @@
 export class CampaignMailingRecipientResponse {
-    paging;
+    paging: Paging;
     recipients: undefined[];
 }

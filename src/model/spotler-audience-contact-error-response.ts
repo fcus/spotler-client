@@ -1,5 +1,5 @@
 export class AudienceContactErrorResponse {
-    errorType;
+    errorType: ErrorType;
     message: string;
     externalContactIds: string[];
 }

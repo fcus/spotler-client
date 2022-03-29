@@ -1,8 +1,8 @@
 export class MailingInteraction {
-    id: integer;
+    id: number;
     externalContactId: string;
     encryptedMailingId: string;
     date: string;
     changeDate: string;
-    trendReportId: integer;
+    trendReportId: number;
 }

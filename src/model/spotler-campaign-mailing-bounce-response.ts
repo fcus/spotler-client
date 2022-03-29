@@ -1,4 +1,4 @@
 export class CampaignMailingBounceResponse {
-    paging;
+    paging: Paging;
     bounces: undefined[];
 }

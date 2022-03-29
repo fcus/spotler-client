@@ -1,6 +1,6 @@
 export class FormResult {
-    formResultId: integer;
-    submittedAt;
+    formResultId: number;
+    submittedAt: string;
     testResult: boolean;
     answers: undefined[];
     completed: boolean;
