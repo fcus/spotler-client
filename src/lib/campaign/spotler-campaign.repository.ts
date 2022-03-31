@@ -13,13 +13,13 @@ export class SpotlerCampaignRepository extends SpotlerBaseRepository {
 
     async getCampaignMailings(args: { encryptedCampaignId: string }) {
         return this.get({
-            endpoint: `/${args.encryptedCampaignId}/mailing`,
+            endpoint: `${args.encryptedCampaignId}/mailing`,
         }) as Promise<any[]>;
     }
 
     async list() {
         return this.get({
-            endpoint: `/list`,
+            endpoint: `list`,
         }) as Promise<SpotlerCampaign[]>;
     }
 
@@ -28,7 +28,7 @@ export class SpotlerCampaignRepository extends SpotlerBaseRepository {
         body: SpotlerCampaignStopRequest;
     }) {
         return this.post({
-            endpoint: `/${args.encryptedCampaignId}/stop`,
+            endpoint: `${args.encryptedCampaignId}/stop`,
             body: args.body,
         }) as Promise<any[]>;
     }
@@ -38,7 +38,7 @@ export class SpotlerCampaignRepository extends SpotlerBaseRepository {
         body: SpotlerCampaignTriggerRequest;
     }) {
         return this.post({
-            endpoint: `/trigger/${args.encryptedTriggerId}`,
+            endpoint: `trigger/${args.encryptedTriggerId}`,
             body: args.body,
         }) as Promise<any[]>;
     }

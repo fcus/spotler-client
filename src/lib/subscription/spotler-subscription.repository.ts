@@ -11,7 +11,7 @@ export class SpotlerSubscriptionRepository extends SpotlerBaseRepository {
 
     async subscribeContact(args: { body: SpotlerContact }) {
         return this.post({
-            endpoint: `/subscribe`,
+            endpoint: `subscribe`,
             body: args.body,
         }) as Promise<any[]>;
     }

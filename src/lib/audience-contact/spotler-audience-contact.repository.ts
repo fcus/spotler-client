@@ -14,7 +14,7 @@ export class SpotlerAudienceContactRepository extends SpotlerBaseRepository {
         body: SpotlerChangeContactsAudienceRequest;
     }) {
         return this.post({
-            endpoint: `/audience/${args.externalId}/contact`,
+            endpoint: `audience/${args.externalId}/contact`,
             body: args.body,
         }) as Promise<any[]>;
     }
@@ -24,7 +24,7 @@ export class SpotlerAudienceContactRepository extends SpotlerBaseRepository {
         body?: SpotlerChangeContactsAudienceRequest;
     }) {
         return this.delete({
-            endpoint: `/audience/${args.externalId}/contact`,
+            endpoint: `audience/${args.externalId}/contact`,
         }) as Promise<any[]>;
     }
 }

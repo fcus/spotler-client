@@ -18,7 +18,7 @@ export class SpotlerMailingInteractionRepository extends SpotlerBaseRepository {
         pageSize?: number;
     }) {
         return this.get({
-            endpoint: `/bounced`,
+            endpoint: `bounced`,
             query: {
                 fromDate: args.fromDate,
                 toDate: args.toDate,
@@ -41,7 +41,7 @@ export class SpotlerMailingInteractionRepository extends SpotlerBaseRepository {
         pageSize?: number;
     }) {
         return this.get({
-            endpoint: `/clicked`,
+            endpoint: `clicked`,
             query: {
                 fromDate: args.fromDate,
                 toDate: args.toDate,
@@ -64,7 +64,7 @@ export class SpotlerMailingInteractionRepository extends SpotlerBaseRepository {
         pageSize?: number;
     }) {
         return this.get({
-            endpoint: `/opened`,
+            endpoint: `opened`,
             query: {
                 fromDate: args.fromDate,
                 toDate: args.toDate,
@@ -87,7 +87,7 @@ export class SpotlerMailingInteractionRepository extends SpotlerBaseRepository {
         pageSize?: number;
     }) {
         return this.get({
-            endpoint: `/sent`,
+            endpoint: `sent`,
             query: {
                 fromDate: args.fromDate,
                 toDate: args.toDate,

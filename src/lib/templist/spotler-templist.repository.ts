@@ -15,7 +15,7 @@ export class SpotlerTemplistRepository extends SpotlerBaseRepository {
         body: SpotlerAddContactsToTemporaryListRequest;
     }) {
         return this.post({
-            endpoint: `/${args.externalTemporaryListId}`,
+            endpoint: `${args.externalTemporaryListId}`,
             body: args.body,
         }) as Promise<any[]>;
     }
@@ -31,7 +31,7 @@ export class SpotlerTemplistRepository extends SpotlerBaseRepository {
 
     async deleteTemporaryList(args: { externalTemporaryListId: string }) {
         return this.delete({
-            endpoint: `/${args.externalTemporaryListId}`,
+            endpoint: `${args.externalTemporaryListId}`,
         }) as Promise<any[]>;
     }
 

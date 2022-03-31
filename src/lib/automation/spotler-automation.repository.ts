@@ -14,7 +14,7 @@ export class SpotlerAutomationRepository extends SpotlerBaseRepository {
         body: SpotlerAutomationTriggerRequest;
     }) {
         return this.post({
-            endpoint: `/trigger/${args.triggerCode}`,
+            endpoint: `trigger/${args.triggerCode}`,
             body: args.body,
         }) as Promise<any[]>;
     }

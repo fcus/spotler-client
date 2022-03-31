@@ -13,14 +13,14 @@ export class SpotlerContactRepository extends SpotlerBaseRepository {
 
     async anonymizeContact(args: { externalId: string }) {
         return this.put({
-            endpoint: `/anonymize/${args.externalId}`,
+            endpoint: `anonymize/${args.externalId}`,
             body: args.externalId,
         }) as Promise<any[]>;
     }
 
     async getAvailableProperties(args: {}) {
         return this.get({
-            endpoint: `/properties/list`,
+            endpoint: `properties/list`,
         }) as Promise<any[]>;
     }
 
@@ -31,7 +31,7 @@ export class SpotlerContactRepository extends SpotlerBaseRepository {
         pageSize: number;
     }) {
         return this.get({
-            endpoint: `/bounces/list`,
+            endpoint: `bounces/list`,
             query: {
                 fromDate: args.fromDate,
                 toDate: args.toDate,
@@ -46,7 +46,7 @@ export class SpotlerContactRepository extends SpotlerBaseRepository {
         after?: number;
     }) {
         return this.get({
-            endpoint: `/${args.externalId}/campaign-mailings`,
+            endpoint: `${args.externalId}/campaign-mailings`,
             query: {
                 after: args.after,
             },
@@ -55,7 +55,7 @@ export class SpotlerContactRepository extends SpotlerBaseRepository {
 
     async getContact(args: { externalId: string }) {
         return this.get({
-            endpoint: `/${args.externalId}`,
+            endpoint: `${args.externalId}`,
         }) as Promise<any[]>;
     }
 
@@ -65,7 +65,7 @@ export class SpotlerContactRepository extends SpotlerBaseRepository {
         pageSize?: number;
     }) {
         return this.get({
-            endpoint: `/${args.externalId}/forms`,
+            endpoint: `${args.externalId}/forms`,
             query: {
                 after: args.after,
                 pageSize: args.pageSize,
@@ -75,7 +75,7 @@ export class SpotlerContactRepository extends SpotlerBaseRepository {
 
     async getMailingHistory(args: { externalId: string; after?: number }) {
         return this.get({
-            endpoint: `/${args.externalId}/mailings`,
+            endpoint: `${args.externalId}/mailings`,
             query: {
                 after: args.after,
             },
@@ -89,7 +89,7 @@ export class SpotlerContactRepository extends SpotlerBaseRepository {
         pageSize: number;
     }) {
         return this.get({
-            endpoint: `/updates/list`,
+            endpoint: `updates/list`,
             query: {
                 fromDate: args.fromDate,
                 toDate: args.toDate,
@@ -108,7 +108,7 @@ export class SpotlerContactRepository extends SpotlerBaseRepository {
 
     async insertContacts(args: { body: SpotlerAddContactsRequest }) {
         return this.post({
-            endpoint: `/list`,
+            endpoint: `list`,
             body: args.body,
         }) as Promise<any[]>;
     }
@@ -119,7 +119,7 @@ export class SpotlerContactRepository extends SpotlerBaseRepository {
         MPSearchQuery: string;
     }) {
         return this.get({
-            endpoint: `/search`,
+            endpoint: `search`,
             query: {
                 after: args.after,
                 pageSize: args.pageSize,
@@ -133,7 +133,7 @@ export class SpotlerContactRepository extends SpotlerBaseRepository {
         externalId: string;
     }) {
         return this.put({
-            endpoint: `/${args.externalId}`,
+            endpoint: `${args.externalId}`,
             body: args.body,
         }) as Promise<any[]>;
     }

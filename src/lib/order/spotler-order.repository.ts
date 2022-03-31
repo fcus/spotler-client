@@ -11,7 +11,7 @@ export class SpotlerOrderRepository extends SpotlerBaseRepository {
 
     async deleteOrder(args: { externalOrderId: string }) {
         return this.delete({
-            endpoint: `/${args.externalOrderId}`,
+            endpoint: `${args.externalOrderId}`,
         }) as Promise<any[]>;
     }
 
@@ -27,7 +27,7 @@ export class SpotlerOrderRepository extends SpotlerBaseRepository {
         body: SpotlerOrderRequest;
     }) {
         return this.put({
-            endpoint: `/${args.externalOrderId}`,
+            endpoint: `${args.externalOrderId}`,
             body: args.body,
         }) as Promise<any[]>;
     }

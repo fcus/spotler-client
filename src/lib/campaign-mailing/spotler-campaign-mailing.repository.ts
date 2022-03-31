@@ -16,7 +16,7 @@ export class SpotlerCampaignMailingRepository extends SpotlerBaseRepository {
         toDate?: string;
     }) {
         return this.get({
-            endpoint: `/${args.encryptedMailingId}/bounces`,
+            endpoint: `${args.encryptedMailingId}/bounces`,
             query: {
                 after: args.after,
                 pageSize: args.pageSize,
@@ -35,7 +35,7 @@ export class SpotlerCampaignMailingRepository extends SpotlerBaseRepository {
         toDate?: string;
     }) {
         return this.get({
-            endpoint: `/${args.encryptedMailingId}/clicks/${args.campaignSubscriptionId}`,
+            endpoint: `${args.encryptedMailingId}/clicks/${args.campaignSubscriptionId}`,
             query: {
                 after: args.after,
                 pageSize: args.pageSize,
@@ -54,7 +54,7 @@ export class SpotlerCampaignMailingRepository extends SpotlerBaseRepository {
         toDate?: string;
     }) {
         return this.get({
-            endpoint: `/${args.encryptedMailingId}/opens/${args.campaignSubscriptionId}`,
+            endpoint: `${args.encryptedMailingId}/opens/${args.campaignSubscriptionId}`,
             query: {
                 after: args.after,
                 pageSize: args.pageSize,
@@ -72,7 +72,7 @@ export class SpotlerCampaignMailingRepository extends SpotlerBaseRepository {
         toDate?: string;
     }) {
         return this.get({
-            endpoint: `/${args.encryptedMailingId}/opens`,
+            endpoint: `${args.encryptedMailingId}/opens`,
             query: {
                 after: args.after,
                 pageSize: args.pageSize,
@@ -84,7 +84,7 @@ export class SpotlerCampaignMailingRepository extends SpotlerBaseRepository {
 
     async getCampaignMailingsDetails(args: { encryptedMailingId: string }) {
         return this.get({
-            endpoint: `/${args.encryptedMailingId}`,
+            endpoint: `${args.encryptedMailingId}`,
         }) as Promise<any[]>;
     }
 
@@ -96,7 +96,7 @@ export class SpotlerCampaignMailingRepository extends SpotlerBaseRepository {
         toDate?: string;
     }) {
         return this.get({
-            endpoint: `/${args.encryptedMailingId}/clicks`,
+            endpoint: `${args.encryptedMailingId}/clicks`,
             query: {
                 after: args.after,
                 pageSize: args.pageSize,
@@ -114,7 +114,7 @@ export class SpotlerCampaignMailingRepository extends SpotlerBaseRepository {
         toDate?: string;
     }) {
         return this.get({
-            endpoint: `/${args.encryptedMailingId}/recipients`,
+            endpoint: `${args.encryptedMailingId}/recipients`,
             query: {
                 after: args.after,
                 pageSize: args.pageSize,

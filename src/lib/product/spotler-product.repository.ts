@@ -11,19 +11,19 @@ export class SpotlerProductRepository extends SpotlerBaseRepository {
 
     async deleteProduct(args: { externalProductId: string }) {
         return this.delete({
-            endpoint: `/${args.externalProductId}`,
+            endpoint: `${args.externalProductId}`,
         }) as Promise<any[]>;
     }
 
     async getAvailableProperties(args: {}) {
         return this.get({
-            endpoint: `/custom-properties/list`,
+            endpoint: `custom-properties/list`,
         }) as Promise<any[]>;
     }
 
     async getProduct(args: { externalProductId: string }) {
         return this.get({
-            endpoint: `/${args.externalProductId}`,
+            endpoint: `${args.externalProductId}`,
         }) as Promise<any[]>;
     }
 
@@ -40,7 +40,7 @@ export class SpotlerProductRepository extends SpotlerBaseRepository {
         MPSearchQuery: string;
     }) {
         return this.get({
-            endpoint: `/search`,
+            endpoint: `search`,
             query: {
                 after: args.after,
                 pageSize: args.pageSize,
@@ -54,7 +54,7 @@ export class SpotlerProductRepository extends SpotlerBaseRepository {
         body: SpotlerProductRequest;
     }) {
         return this.put({
-            endpoint: `/${args.externalProductId}`,
+            endpoint: `${args.externalProductId}`,
             body: args.body,
         }) as Promise<any[]>;
     }

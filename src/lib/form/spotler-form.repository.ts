@@ -20,7 +20,7 @@ export class SpotlerFormRepository extends SpotlerBaseRepository {
         outputMode?: string;
     }) {
         return this.get({
-            endpoint: `/${args.formId}`,
+            endpoint: `${args.formId}`,
             query: {
                 postUrl: args.postUrl,
                 encId: args.encId,
@@ -33,7 +33,7 @@ export class SpotlerFormRepository extends SpotlerBaseRepository {
 
     async getFormResult(args: { formId: number; formResultId: number }) {
         return this.get({
-            endpoint: `/result/${args.formId}/${args.formResultId}`,
+            endpoint: `result/${args.formId}/${args.formResultId}`,
         }) as Promise<any[]>;
     }
 
@@ -44,7 +44,7 @@ export class SpotlerFormRepository extends SpotlerBaseRepository {
         endDate?: SpotlerDateParam;
     }) {
         return this.get({
-            endpoint: `/result/${args.formId}`,
+            endpoint: `result/${args.formId}`,
             query: {
                 completed: args.completed,
                 startDate: args.startDate,
@@ -55,7 +55,7 @@ export class SpotlerFormRepository extends SpotlerBaseRepository {
 
     async getForms(args: { formSubType?: string; formState?: string }) {
         return this.get({
-            endpoint: `/list`,
+            endpoint: `list`,
             query: {
                 formSubType: args.formSubType,
                 formState: args.formState,
@@ -65,14 +65,14 @@ export class SpotlerFormRepository extends SpotlerBaseRepository {
 
     async postForm(args: { formId: number; body: SpotlerFormRequest }) {
         return this.post({
-            endpoint: `/${args.formId}`,
+            endpoint: `${args.formId}`,
             body: args.body,
         }) as Promise<any[]>;
     }
 
     async submitForm(args: { formId: number; body: SpotlerParams }) {
         return this.post({
-            endpoint: `/result/${args.formId}`,
+            endpoint: `result/${args.formId}`,
             body: args.body,
         }) as Promise<any[]>;
     }

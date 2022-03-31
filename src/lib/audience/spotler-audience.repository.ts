@@ -12,13 +12,13 @@ export class SpotlerAudienceRepository extends SpotlerBaseRepository {
 
     async deleteAudience(args: { externalId: string }) {
         return this.delete({
-            endpoint: `/${args.externalId}`,
+            endpoint: `${args.externalId}`,
         }) as Promise<any[]>;
     }
 
     async getAudience(args: { externalId: string }) {
         return this.get({
-            endpoint: `/${args.externalId}`,
+            endpoint: `${args.externalId}`,
         }) as Promise<any[]>;
     }
 
@@ -31,7 +31,7 @@ export class SpotlerAudienceRepository extends SpotlerBaseRepository {
 
     async updateAudience(args: { externalId: string; body: SpotlerAudience }) {
         return this.put({
-            endpoint: `/${args.externalId}`,
+            endpoint: `${args.externalId}`,
             body: args.body,
         }) as Promise<any[]>;
     }
