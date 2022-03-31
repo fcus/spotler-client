@@ -1,12 +1,12 @@
 {
   "name": "@fcus/spotler-client",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "lockfileVersion": 2,
   "requires": true,
   "packages": {
     "": {
       "name": "@fcus/spotler-client",
-      "version": "0.1.4",
+      "version": "0.1.5",
       "license": "MIT",
       "dependencies": {
         "@fcus/oauth-1-header": "^0.3.0",
