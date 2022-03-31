@@ -5,8 +5,6 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf dist && tsc",
-    "crawl-api": "ts-node ./misc/crawl-api.ts",
-    "generate-files": "ts-node ./misc/generate-files.ts",
     "setup": "cp .env-example .env",
     "test": "ava"
   },
