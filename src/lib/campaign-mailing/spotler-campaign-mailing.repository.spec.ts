@@ -1,5 +1,5 @@
 import test from 'ava';
 
-test.skip('write a test for this feature', t => {
+test.skip('todo', t => {
     t.pass();
 });
