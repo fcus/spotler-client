@@ -1,6 +1,8 @@
+import { SpotlerContactIdentifier } from './spotler-contact-identifier';
+
 export class SpotlerCampaignMailingClick {
-    contactIdentifier: ContactIdentifier;
-    clickDate: string;
-    linkId: number;
-    campaignSubscriptionId: number;
+    contactIdentifier!: SpotlerContactIdentifier;
+    clickDate!: string;
+    linkId!: number;
+    campaignSubscriptionId!: number;
 }

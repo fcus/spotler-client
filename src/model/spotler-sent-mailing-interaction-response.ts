@@ -1,4 +1,7 @@
+import { SpotlerPaging } from './spotler-paging';
+import { SpotlerMailingInteractionSent } from './spotler-mailing-interaction-sent';
+
 export class SpotlerSentMailingInteractionResponse {
-    paging: Paging;
-    interactions: undefined[];
+    paging!: SpotlerPaging;
+    interactions!: SpotlerMailingInteractionSent;
 }

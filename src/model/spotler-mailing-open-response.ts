@@ -1,4 +1,7 @@
+import { SpotlerPaging } from './spotler-paging';
+import { SpotlerMailingOpen } from './spotler-mailing-open';
+
 export class SpotlerMailingOpenResponse {
-    paging: Paging;
-    opens: undefined[];
+    paging!: SpotlerPaging;
+    opens!: SpotlerMailingOpen;
 }

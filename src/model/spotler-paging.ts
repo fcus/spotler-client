@@ -1,4 +1,4 @@
 export class SpotlerPaging {
-    next: string;
-    after: number;
+    next!: string;
+    after!: number;
 }

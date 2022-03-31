@@ -1,4 +1,6 @@
+import { SpotlerErrorType } from './spotler-error-type';
+
 export class SpotlerErrorResponse {
-    errorType: ErrorType;
-    message: string;
+    errorType!: SpotlerErrorType;
+    message!: string;
 }

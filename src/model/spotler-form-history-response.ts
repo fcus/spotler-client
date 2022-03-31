@@ -1,4 +1,7 @@
+import { SpotlerPaging } from './spotler-paging';
+import { SpotlerFormHistory } from './spotler-form-history';
+
 export class SpotlerFormHistoryResponse {
-    paging: Paging;
-    formHistories: undefined[];
+    paging!: SpotlerPaging;
+    formHistories!: SpotlerFormHistory;
 }

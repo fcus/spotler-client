@@ -1,5 +1,7 @@
+import { SpotlerContact } from './spotler-contact';
+
 export class SpotlerAddContactsRequest {
-    update: boolean;
-    purge: boolean;
-    contacts: undefined[];
+    update!: boolean;
+    purge!: boolean;
+    contacts!: SpotlerContact;
 }

@@ -1,6 +1,6 @@
 export class SpotlerTemporaryList {
-    externalTemporaryListId: string;
-    name: string;
-    createdAt: string;
-    type: string;
+    externalTemporaryListId!: string;
+    name!: string;
+    createdAt!: string;
+    type!: string;
 }

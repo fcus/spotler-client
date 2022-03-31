@@ -1,4 +1,6 @@
+import { SpotlerOrder } from './spotler-order';
+
 export class SpotlerOrderRequest {
-    order: Order;
-    update: boolean;
+    order!: SpotlerOrder;
+    update!: boolean;
 }

@@ -1,4 +1,7 @@
+import { SpotlerPaging } from './spotler-paging';
+import { SpotlerCampaignMailingBounce } from './spotler-campaign-mailing-bounce';
+
 export class SpotlerCampaignMailingBounceResponse {
-    paging: Paging;
-    bounces: undefined[];
+    paging!: SpotlerPaging;
+    bounces!: SpotlerCampaignMailingBounce;
 }

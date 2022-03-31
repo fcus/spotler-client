@@ -1,7 +1,7 @@
 export class SpotlerConversion {
-    mailplusId: string;
-    type: string;
-    value: string;
-    interactionDate: string;
-    products: string[];
+    mailplusId!: string;
+    type!: string;
+    value!: string;
+    interactionDate!: string;
+    products!: SpotlerString;
 }

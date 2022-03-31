@@ -1,4 +1,6 @@
+import { SpotlerContactIdentifier } from './spotler-contact-identifier';
+
 export class SpotlerMailingOpen {
-    contactIdentifier: ContactIdentifier;
-    openDate: string;
+    contactIdentifier!: SpotlerContactIdentifier;
+    openDate!: string;
 }

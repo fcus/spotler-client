@@ -1,4 +1,7 @@
+import { SpotlerPaging } from './spotler-paging';
+import { SpotlerMailingHistory } from './spotler-mailing-history';
+
 export class SpotlerMailingHistoryResponse {
-    paging: Paging;
-    mailingHistories: undefined[];
+    paging!: SpotlerPaging;
+    mailingHistories!: SpotlerMailingHistory;
 }

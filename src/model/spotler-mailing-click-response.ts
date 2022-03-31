@@ -1,4 +1,7 @@
+import { SpotlerPaging } from './spotler-paging';
+import { SpotlerMailingClick } from './spotler-mailing-click';
+
 export class SpotlerMailingClickResponse {
-    paging: Paging;
-    clicks: undefined[];
+    paging!: SpotlerPaging;
+    clicks!: SpotlerMailingClick;
 }

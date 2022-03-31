@@ -1,7 +1,9 @@
+import { SpotlerMailing } from './spotler-mailing';
+
 export class SpotlerMailingHistory {
-    mailing: Mailing;
-    sentDate: string;
-    opened: boolean;
-    clicked: boolean;
-    bounce: string;
+    mailing!: SpotlerMailing;
+    sentDate!: string;
+    opened!: boolean;
+    clicked!: boolean;
+    bounce!: string;
 }

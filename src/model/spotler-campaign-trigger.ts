@@ -1,4 +1,4 @@
 export class SpotlerCampaignTrigger {
-    encryptedId: string;
-    name: string;
+    encryptedId!: string;
+    name!: string;
 }

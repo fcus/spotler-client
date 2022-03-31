@@ -1,4 +1,4 @@
 export class SpotlerUuid {
-    leastSignificantBits: number;
-    mostSignificantBits: number;
+    leastSignificantBits!: number;
+    mostSignificantBits!: number;
 }

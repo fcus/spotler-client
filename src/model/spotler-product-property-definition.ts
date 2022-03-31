@@ -1,3 +1,3 @@
 export class SpotlerProductPropertyDefinition {
-    name: string;
+    name!: string;
 }

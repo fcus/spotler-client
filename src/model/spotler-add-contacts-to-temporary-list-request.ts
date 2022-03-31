@@ -1,3 +1,3 @@
 export class SpotlerAddContactsToTemporaryListRequest {
-    contacts: string[];
+    contacts!: SpotlerString;
 }

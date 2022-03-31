@@ -1,4 +1,4 @@
 export class SpotlerChannel {
-    name: string;
-    value: boolean;
+    name!: string;
+    value!: boolean;
 }

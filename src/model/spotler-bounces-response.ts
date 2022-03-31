@@ -1,4 +1,7 @@
+import { SpotlerPaging } from './spotler-paging';
+import { SpotlerContactBounce } from './spotler-contact-bounce';
+
 export class SpotlerBouncesResponse {
-    paging: Paging;
-    bounces: undefined[];
+    paging!: SpotlerPaging;
+    bounces!: SpotlerContactBounce;
 }

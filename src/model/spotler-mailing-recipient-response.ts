@@ -1,4 +1,7 @@
+import { SpotlerPaging } from './spotler-paging';
+import { SpotlerMailingRecipient } from './spotler-mailing-recipient';
+
 export class SpotlerMailingRecipientResponse {
-    paging: Paging;
-    recipients: undefined[];
+    paging!: SpotlerPaging;
+    recipients!: SpotlerMailingRecipient;
 }

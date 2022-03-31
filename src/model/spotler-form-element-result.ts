@@ -1,6 +1,6 @@
 export class SpotlerFormElementResult {
-    rank: number;
-    fieldId: number;
-    description: string;
-    answer: string[];
+    rank!: number;
+    fieldId!: number;
+    description!: string;
+    answer!: SpotlerString;
 }

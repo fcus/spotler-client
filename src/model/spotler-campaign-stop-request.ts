@@ -1,3 +1,3 @@
 export class SpotlerCampaignStopRequest {
-    externalContactId: string;
+    externalContactId!: string;
 }

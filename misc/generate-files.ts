@@ -157,8 +157,6 @@ function create() {
                     types.indexOf(type) === index,
             );
 
-        console.log(parameterTypes);
-
         const repositoryFile = project.createSourceFile(
             repositoryFilePath,
             '',
@@ -177,7 +175,7 @@ function create() {
         });
         repositoryFile.addImportDeclarations(
             parameterTypes.map(p => ({
-                namedImports: [upperFirst(camelCase('Spotler' + p))],
+                namedImports: [spotlerTypeName(p)],
                 moduleSpecifier: `../../model/spotler-${kebabCase(p)}`,
             })),
         );
@@ -219,9 +217,7 @@ function create() {
         .map(p => {
             const cleanType = replaceType(p.type);
             const parameterName = p.name;
-            const parameterType = baseTypes.includes(cleanType)
-                ? cleanType
-                : upperFirst(camelCase('Spotler' + cleanType));
+            const parameterType = spotlerTypeNameExcludeBaseTypes(cleanType);
             const isRequired = p.required;
             return `${parameterName}${isRequired ? '' : '?'}: ${parameterType}`;
         })
@@ -283,25 +279,42 @@ function create() {
         const modelFile = project.createSourceFile(modelFilePath, '', {
             overwrite: true,
         });
+
+        const propertyTypes = Object.entries(entityValues.properties)
+            .map(([key, value]) => {
+                if (value.type === 'array') {
+                    return replaceType(
+                        value.items.ref ?? value.items.type,
+                    ) as unknown as string;
+                } else {
+                    return replaceType(value.ref as string);
+                }
+            })
+            .filter(ref => ref)
+            .filter(ref => !baseTypes.includes(ref));
+
+        modelFile.addImportDeclarations(
+            propertyTypes.map(p => ({
+                namedImports: [spotlerTypeName(p)],
+                moduleSpecifier: `./spotler-${kebabCase(p)}`,
+            })),
+        );
+
         const modelClass = modelFile
             .addClass({
                 isExported: true,
-                name: upperFirst(camelCase('Spotler' + entityName)),
+                name: spotlerTypeName(entityName),
             })
             .addProperties(
                 (Object.entries(entityValues.properties) ?? []).map(
                     ([name, properties]) => {
                         let type = '';
 
-                        if (properties.ref) {
-                            console.log(properties.ref);
-                        }
-
                         if (properties.type === 'array') {
                             type = `${replaceType(
-                                properties.items.ref?.type ??
-                                    properties.items.type,
+                                properties.items.ref ?? properties.items.type,
                             )}[]`;
+                            console.log(properties.items);
                         } else {
                             type = replaceType(
                                 properties.ref ?? properties.type,
@@ -309,8 +322,8 @@ function create() {
                         }
 
                         return {
-                            name,
-                            type,
+                            name: `${name}!`,
+                            type: spotlerTypeNameExcludeBaseTypes(type),
                         };
                     },
                 ),
@@ -318,6 +331,17 @@ function create() {
 
         modelFile.save();
     }
+}
+
+function spotlerTypeNameExcludeBaseTypes(name: string) {
+    const cleanName = replaceType(name);
+    return baseTypes.includes(cleanName)
+        ? cleanName
+        : spotlerTypeName(cleanName);
+}
+
+function spotlerTypeName(name: string) {
+    return 'Spotler' + upperFirst(camelCase(name));
 }
 
 function replaceType<T>(type: T | string) {

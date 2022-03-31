@@ -1,3 +1,3 @@
 export class SpotlerMailingContactOpen {
-    openDate: string;
+    openDate!: string;
 }

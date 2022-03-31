@@ -1,5 +1,7 @@
+import { SpotlerContactIdentifier } from './spotler-contact-identifier';
+
 export class SpotlerCampaignMailingRecipient {
-    contactIdentifier: ContactIdentifier;
-    sendDate: string;
-    campaignSubscriptionId: number;
+    contactIdentifier!: SpotlerContactIdentifier;
+    sendDate!: string;
+    campaignSubscriptionId!: number;
 }

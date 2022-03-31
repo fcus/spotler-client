@@ -1,3 +1,3 @@
 export class SpotlerChangeContactsAudienceRequest {
-    contacts: string[];
+    contacts!: SpotlerString;
 }

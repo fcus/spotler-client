@@ -1,5 +1,7 @@
+import { SpotlerContactIdentifier } from './spotler-contact-identifier';
+
 export class SpotlerMailingBounce {
-    contactIdentifier: ContactIdentifier;
-    bounceDate: string;
-    type: string;
+    contactIdentifier!: SpotlerContactIdentifier;
+    bounceDate!: string;
+    type!: string;
 }

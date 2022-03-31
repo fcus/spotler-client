@@ -1,4 +1,6 @@
+import { SpotlerProduct } from './spotler-product';
+
 export class SpotlerProductRequest {
-    update: boolean;
-    product: Product;
+    update!: boolean;
+    product!: SpotlerProduct;
 }

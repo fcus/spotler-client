@@ -1,6 +1,6 @@
 export class SpotlerCampaignField {
-    name: string;
-    type: string;
-    values: string[];
-    value: string;
+    name!: string;
+    type!: string;
+    values!: SpotlerString;
+    value!: string;
 }
