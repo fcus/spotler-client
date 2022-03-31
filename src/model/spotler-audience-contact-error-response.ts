@@ -1,7 +1,7 @@
-import { SpotlerErrorType } from './spotler-error-type';
+import { SpotlerErrorType } from '../enum/spotler-error-type.enum';
 
 export class SpotlerAudienceContactErrorResponse {
     errorType!: SpotlerErrorType;
     message!: string;
-    externalContactIds!: SpotlerString;
+    externalContactIds!: any;
 }

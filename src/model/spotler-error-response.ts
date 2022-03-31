@@ -1,4 +1,4 @@
-import { SpotlerErrorType } from './spotler-error-type';
+import { SpotlerErrorType } from '../enum/spotler-error-type.enum';
 
 export class SpotlerErrorResponse {
     errorType!: SpotlerErrorType;

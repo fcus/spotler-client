@@ -1,17 +1,15 @@
+import { SpotlerContact } from '../../model/spotler-contact';
 import { SpotlerBaseRepository } from '../../shared/base/spotler-base.repository';
 import { SpotlerConfig } from '../../shared/config/spotler-config';
-import { SpotlerContact } from '../../model/spotler-contact';
 
 export class SpotlerSubscriptionRepository extends SpotlerBaseRepository {
     protected readonly resource = 'subscription';
 
     constructor(protected config: SpotlerConfig) {
-            super();
+        super();
     }
 
-    async subscribeContact(args: {
-            body: SpotlerContact
-        }) {
+    async subscribeContact(args: { body: SpotlerContact }) {
         return this.post({
             endpoint: `/subscribe`,
             body: args.body,

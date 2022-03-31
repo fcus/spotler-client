@@ -1,5 +1,5 @@
-import { SpotlerTrendReportTarget } from './spotler-trend-report-target';
-import { SpotlerTrendReportContentType } from './spotler-trend-report-content-type';
+import { SpotlerTrendReportContentType } from '../enum/spotler-trend-report-content-type.enum';
+import { SpotlerTrendReportTarget } from '../enum/spotler-trend-report-target.enum';
 
 export class SpotlerTrendReport {
     id!: number;

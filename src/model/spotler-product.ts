@@ -1,4 +1,3 @@
-import { SpotlerMapStringObject } from './spotler-map-string-object';
 import { SpotlerProductSpecification } from './spotler-product-specification';
 
 export class SpotlerProduct {
@@ -24,6 +23,6 @@ export class SpotlerProduct {
     stock!: string;
     deleted!: boolean;
     visible!: boolean;
-    customProperties!: SpotlerMapStringObject;
+    customProperties!: any;
     specifications!: SpotlerProductSpecification;
 }

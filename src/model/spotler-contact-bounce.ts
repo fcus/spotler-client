@@ -1,9 +1,9 @@
-import { SpotlerType } from './spotler-type';
+import { SpotlerContactBounceType } from '../enum/spotler-type.enum';
 import { SpotlerContact } from './spotler-contact';
 
 export class SpotlerContactBounce {
     date!: string;
-    type!: SpotlerType;
+    type!: SpotlerContactBounceType;
     contact!: SpotlerContact;
     encryptedActId!: string;
 }

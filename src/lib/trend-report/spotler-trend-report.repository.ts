@@ -5,21 +5,21 @@ export class SpotlerTrendReportRepository extends SpotlerBaseRepository {
     protected readonly resource = 'trend-report';
 
     constructor(protected config: SpotlerConfig) {
-            super();
+        super();
     }
 
     async getTrendReports(args: {
-            after?: number,
-        pageSize?: number,
-        enabled?: boolean
-        }) {
+        after?: number;
+        pageSize?: number;
+        enabled?: boolean;
+    }) {
         return this.get({
             endpoint: ``,
-            params: {
+            query: {
                 after: args.after,
-        pageSize: args.pageSize,
-        enabled: args.enabled
-            }
+                pageSize: args.pageSize,
+                enabled: args.enabled,
+            },
         }) as Promise<any[]>;
     }
 }

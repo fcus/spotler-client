@@ -3,5 +3,5 @@ export class SpotlerOrder {
     externalContactId!: string;
     date!: string;
     value!: string;
-    externalProductIds!: SpotlerString;
+    externalProductIds!: any;
 }

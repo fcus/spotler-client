@@ -1,41 +1,33 @@
+import { SpotlerProductRequest } from '../../model/spotler-product-request';
 import { SpotlerBaseRepository } from '../../shared/base/spotler-base.repository';
 import { SpotlerConfig } from '../../shared/config/spotler-config';
-import { SpotlerProductRequest } from '../../model/spotler-product-request';
 
 export class SpotlerProductRepository extends SpotlerBaseRepository {
     protected readonly resource = 'product';
 
     constructor(protected config: SpotlerConfig) {
-            super();
+        super();
     }
 
-    async deleteProduct(args: {
-            externalProductId: string
-        }) {
+    async deleteProduct(args: { externalProductId: string }) {
         return this.delete({
             endpoint: `/${args.externalProductId}`,
         }) as Promise<any[]>;
     }
 
-    async getAvailableProperties(args: {
-            
-        }) {
+    async getAvailableProperties(args: {}) {
         return this.get({
             endpoint: `/custom-properties/list`,
         }) as Promise<any[]>;
     }
 
-    async getProduct(args: {
-            externalProductId: string
-        }) {
+    async getProduct(args: { externalProductId: string }) {
         return this.get({
             endpoint: `/${args.externalProductId}`,
         }) as Promise<any[]>;
     }
 
-    async insertProduct(args: {
-            body: SpotlerProductRequest
-        }) {
+    async insertProduct(args: { body: SpotlerProductRequest }) {
         return this.post({
             endpoint: ``,
             body: args.body,
@@ -43,24 +35,24 @@ export class SpotlerProductRepository extends SpotlerBaseRepository {
     }
 
     async searchProducts(args: {
-            after?: number,
-        pageSize?: number,
-        MPSearchQuery: string
-        }) {
+        after?: number;
+        pageSize?: number;
+        MPSearchQuery: string;
+    }) {
         return this.get({
             endpoint: `/search`,
-            params: {
+            query: {
                 after: args.after,
-        pageSize: args.pageSize,
-        MPSearchQuery: args.MPSearchQuery
-            }
+                pageSize: args.pageSize,
+                MPSearchQuery: args.MPSearchQuery,
+            },
         }) as Promise<any[]>;
     }
 
     async updateProduct(args: {
-            externalProductId: string,
-        body: SpotlerProductRequest
-        }) {
+        externalProductId: string;
+        body: SpotlerProductRequest;
+    }) {
         return this.put({
             endpoint: `/${args.externalProductId}`,
             body: args.body,

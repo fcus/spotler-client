@@ -1,4 +1,4 @@
-import { SpotlerContactResponseCode } from './spotler-contact-response-code';
+import { SpotlerContactResponseCode } from '../enum/spotler-contact-response-code.enum';
 
 export class SpotlerAddContactResponse {
     externalId!: string;

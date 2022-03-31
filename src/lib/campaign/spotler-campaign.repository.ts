@@ -1,35 +1,31 @@
-import { SpotlerBaseRepository } from '../../shared/base/spotler-base.repository';
-import { SpotlerConfig } from '../../shared/config/spotler-config';
 import { SpotlerCampaignStopRequest } from '../../model/spotler-campaign-stop-request';
 import { SpotlerCampaignTriggerRequest } from '../../model/spotler-campaign-trigger-request';
+import { SpotlerBaseRepository } from '../../shared/base/spotler-base.repository';
+import { SpotlerConfig } from '../../shared/config/spotler-config';
 
 export class SpotlerCampaignRepository extends SpotlerBaseRepository {
     protected readonly resource = 'campaign';
 
     constructor(protected config: SpotlerConfig) {
-            super();
+        super();
     }
 
-    async externalCampaignTriggers(args: {
-            
-        }) {
+    async externalCampaignTriggers(args: {}) {
         return this.get({
             endpoint: `/list`,
         }) as Promise<any[]>;
     }
 
-    async getCampaignMailings(args: {
-            encryptedCampaignId: string
-        }) {
+    async getCampaignMailings(args: { encryptedCampaignId: string }) {
         return this.get({
             endpoint: `/${args.encryptedCampaignId}/mailing`,
         }) as Promise<any[]>;
     }
 
     async stopCampaign(args: {
-            encryptedCampaignId: string,
-        body: SpotlerCampaignStopRequest
-        }) {
+        encryptedCampaignId: string;
+        body: SpotlerCampaignStopRequest;
+    }) {
         return this.post({
             endpoint: `/${args.encryptedCampaignId}/stop`,
             body: args.body,
@@ -37,9 +33,9 @@ export class SpotlerCampaignRepository extends SpotlerBaseRepository {
     }
 
     async triggerCampaign(args: {
-            encryptedTriggerId: string,
-        body: SpotlerCampaignTriggerRequest
-        }) {
+        encryptedTriggerId: string;
+        body: SpotlerCampaignTriggerRequest;
+    }) {
         return this.post({
             endpoint: `/trigger/${args.encryptedTriggerId}`,
             body: args.body,

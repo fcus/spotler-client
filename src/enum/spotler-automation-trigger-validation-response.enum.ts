@@ -1,0 +1,5 @@
+export enum SpotlerAutomationTriggerValidationResponse {
+    OK = 'OK',
+    AUTOMATION_INACTIVE = 'AUTOMATION_INACTIVE',
+    PARTICIPATION_LIMIT_REACHED = 'PARTICIPATION_LIMIT_REACHED'
+}

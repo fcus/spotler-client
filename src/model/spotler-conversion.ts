@@ -3,5 +3,5 @@ export class SpotlerConversion {
     type!: string;
     value!: string;
     interactionDate!: string;
-    products!: SpotlerString;
+    products!: any;
 }

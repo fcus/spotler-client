@@ -1,25 +1,21 @@
+import { SpotlerOrderRequest } from '../../model/spotler-order-request';
 import { SpotlerBaseRepository } from '../../shared/base/spotler-base.repository';
 import { SpotlerConfig } from '../../shared/config/spotler-config';
-import { SpotlerOrderRequest } from '../../model/spotler-order-request';
 
 export class SpotlerOrderRepository extends SpotlerBaseRepository {
     protected readonly resource = 'order';
 
     constructor(protected config: SpotlerConfig) {
-            super();
+        super();
     }
 
-    async deleteOrder(args: {
-            externalOrderId: string
-        }) {
+    async deleteOrder(args: { externalOrderId: string }) {
         return this.delete({
             endpoint: `/${args.externalOrderId}`,
         }) as Promise<any[]>;
     }
 
-    async insertOrder(args: {
-            body: SpotlerOrderRequest
-        }) {
+    async insertOrder(args: { body: SpotlerOrderRequest }) {
         return this.post({
             endpoint: ``,
             body: args.body,
@@ -27,9 +23,9 @@ export class SpotlerOrderRepository extends SpotlerBaseRepository {
     }
 
     async updateOrder(args: {
-            externalOrderId: string,
-        body: SpotlerOrderRequest
-        }) {
+        externalOrderId: string;
+        body: SpotlerOrderRequest;
+    }) {
         return this.put({
             endpoint: `/${args.externalOrderId}`,
             body: args.body,

@@ -1,124 +1,111 @@
+import { SpotlerAddContactsRequest } from '../../model/spotler-add-contacts-request';
+import { SpotlerContactRequest } from '../../model/spotler-contact-request';
 import { SpotlerBaseRepository } from '../../shared/base/spotler-base.repository';
 import { SpotlerConfig } from '../../shared/config/spotler-config';
-import { SpotlerContactRequest } from '../../model/spotler-contact-request';
-import { SpotlerAddContactsRequest } from '../../model/spotler-add-contacts-request';
 
 export class SpotlerContactRepository extends SpotlerBaseRepository {
     protected readonly resource = 'contact';
 
     constructor(protected config: SpotlerConfig) {
-            super();
+        super();
     }
 
-    async anonymizeContact(args: {
-            externalId: string
-        }) {
+    async anonymizeContact(args: { externalId: string }) {
         return this.put({
             endpoint: `/anonymize/${args.externalId}`,
-            body: args.body,
+            body: args.externalId,
         }) as Promise<any[]>;
     }
 
-    async getAvailableProperties(args: {
-            
-        }) {
+    async getAvailableProperties(args: {}) {
         return this.get({
             endpoint: `/properties/list`,
         }) as Promise<any[]>;
     }
 
     async getBouncedContactsJson(args: {
-            fromDate: string,
-        toDate: string,
-        after?: number,
-        pageSize: number
-        }) {
+        fromDate: string;
+        toDate: string;
+        after?: number;
+        pageSize: number;
+    }) {
         return this.get({
             endpoint: `/bounces/list`,
-            params: {
+            query: {
                 fromDate: args.fromDate,
-        toDate: args.toDate,
-        after: args.after,
-        pageSize: args.pageSize
-            }
+                toDate: args.toDate,
+                after: args.after,
+                pageSize: args.pageSize,
+            },
         }) as Promise<any[]>;
     }
 
     async getCampaignMailingHistory(args: {
-            externalId: string,
-        after?: number
-        }) {
+        externalId: string;
+        after?: number;
+    }) {
         return this.get({
             endpoint: `/${args.externalId}/campaign-mailings`,
-            params: {
-                after: args.after
-            }
+            query: {
+                after: args.after,
+            },
         }) as Promise<any[]>;
     }
 
-    async getContact(args: {
-            externalId: string
-        }) {
+    async getContact(args: { externalId: string }) {
         return this.get({
             endpoint: `/${args.externalId}`,
         }) as Promise<any[]>;
     }
 
     async getFormHistory(args: {
-            externalId: string,
-        after?: number,
-        pageSize?: number
-        }) {
+        externalId: string;
+        after?: number;
+        pageSize?: number;
+    }) {
         return this.get({
             endpoint: `/${args.externalId}/forms`,
-            params: {
+            query: {
                 after: args.after,
-        pageSize: args.pageSize
-            }
+                pageSize: args.pageSize,
+            },
         }) as Promise<any[]>;
     }
 
-    async getMailingHistory(args: {
-            externalId: string,
-        after?: number
-        }) {
+    async getMailingHistory(args: { externalId: string; after?: number }) {
         return this.get({
             endpoint: `/${args.externalId}/mailings`,
-            params: {
-                after: args.after
-            }
+            query: {
+                after: args.after,
+            },
         }) as Promise<any[]>;
     }
 
     async getUpdatedContactsJson(args: {
-            fromDate: string,
-        toDate: string,
-        after?: number,
-        pageSize: number
-        }) {
+        fromDate: string;
+        toDate: string;
+        after?: number;
+        pageSize: number;
+    }) {
         return this.get({
             endpoint: `/updates/list`,
-            params: {
+            query: {
                 fromDate: args.fromDate,
-        toDate: args.toDate,
-        after: args.after,
-        pageSize: args.pageSize
-            }
+                toDate: args.toDate,
+                after: args.after,
+                pageSize: args.pageSize,
+            },
         }) as Promise<any[]>;
     }
 
-    async insertContact(args: {
-            body: SpotlerContactRequest
-        }) {
+    async insertContact(args: { body: SpotlerContactRequest }) {
         return this.post({
             endpoint: ``,
             body: args.body,
         }) as Promise<any[]>;
     }
 
-    async insertContacts(args: {
-            body: SpotlerAddContactsRequest
-        }) {
+    async insertContacts(args: { body: SpotlerAddContactsRequest }) {
         return this.post({
             endpoint: `/list`,
             body: args.body,
@@ -126,24 +113,24 @@ export class SpotlerContactRepository extends SpotlerBaseRepository {
     }
 
     async searchContactsJson(args: {
-            after?: number,
-        pageSize: number,
-        MPSearchQuery: string
-        }) {
+        after?: number;
+        pageSize: number;
+        MPSearchQuery: string;
+    }) {
         return this.get({
             endpoint: `/search`,
-            params: {
+            query: {
                 after: args.after,
-        pageSize: args.pageSize,
-        MPSearchQuery: args.MPSearchQuery
-            }
+                pageSize: args.pageSize,
+                MPSearchQuery: args.MPSearchQuery,
+            },
         }) as Promise<any[]>;
     }
 
     async updateContact(args: {
-            body: SpotlerContactRequest,
-        externalId: string
-        }) {
+        body: SpotlerContactRequest;
+        externalId: string;
+    }) {
         return this.put({
             endpoint: `/${args.externalId}`,
             body: args.body,

@@ -1,4 +1,3 @@
-import { SpotlerMapStringObject } from './spotler-map-string-object';
 import { SpotlerChannel } from './spotler-channel';
 
 export class SpotlerContact {
@@ -8,6 +7,6 @@ export class SpotlerContact {
     testGroup!: boolean;
     lastChanged!: string;
     temporary!: boolean;
-    properties!: SpotlerMapStringObject;
+    properties!: any;
     channels!: SpotlerChannel;
 }
