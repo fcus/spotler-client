@@ -1,7 +1,7 @@
 import test from 'ava';
 import { deepInterfaceCompare } from './deep-interface-compare';
 
-test('write a test for this feature', t => {
+test.skip('write a test for this feature', t => {
     t.pass();
 });
 

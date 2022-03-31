@@ -1,3 +1,4 @@
+import { SpotlerCampaign } from '../../model/spotler-campaign';
 import { SpotlerCampaignStopRequest } from '../../model/spotler-campaign-stop-request';
 import { SpotlerCampaignTriggerRequest } from '../../model/spotler-campaign-trigger-request';
 import { SpotlerBaseRepository } from '../../shared/base/spotler-base.repository';
@@ -10,16 +11,16 @@ export class SpotlerCampaignRepository extends SpotlerBaseRepository {
         super();
     }
 
-    async externalCampaignTriggers(args: {}) {
-        return this.get({
-            endpoint: `/list`,
-        }) as Promise<any[]>;
-    }
-
     async getCampaignMailings(args: { encryptedCampaignId: string }) {
         return this.get({
             endpoint: `/${args.encryptedCampaignId}/mailing`,
         }) as Promise<any[]>;
+    }
+
+    async list() {
+        return this.get({
+            endpoint: `/list`,
+        }) as Promise<SpotlerCampaign[]>;
     }
 
     async stopCampaign(args: {
