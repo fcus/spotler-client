@@ -1,5 +1,5 @@
 {
-  "name": "spotler-client",
+  "name": "@fcus/spotler-client",
   "version": "0.1.0",
   "description": "Node.js client for the Spotler REST API. Made with Typescript",
   "main": "index.js",
