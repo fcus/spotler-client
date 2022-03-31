@@ -1,4 +1,5 @@
 import { SpotlerAddContactsRequest } from '../../model/spotler-add-contacts-request';
+import { SpotlerContact } from '../../model/spotler-contact';
 import { SpotlerContactRequest } from '../../model/spotler-contact-request';
 import { SpotlerBaseRepository } from '../../shared/base/spotler-base.repository';
 import { SpotlerConfig } from '../../shared/config/spotler-config';
@@ -95,7 +96,7 @@ export class SpotlerContactRepository extends SpotlerBaseRepository {
                 after: args.after,
                 pageSize: args.pageSize,
             },
-        }) as Promise<any[]>;
+        }) as Promise<SpotlerContact[]>;
     }
 
     async insertContact(args: { body: SpotlerContactRequest }) {

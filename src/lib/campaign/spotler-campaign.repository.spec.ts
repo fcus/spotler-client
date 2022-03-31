@@ -5,7 +5,7 @@ import { SpotlerCampaignRepository } from './spotler-campaign.repository';
 
 test.before(spotlerClientTestContext);
 
-test('SpotlerCampaignRepository list', async (t: ExecutionContext<any>) => {
+test('Campaign repository: list', async (t: ExecutionContext<any>) => {
     const client = new SpotlerCampaignRepository(t.context.config);
 
     const result = await client.list();
