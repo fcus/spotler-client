@@ -1,4 +1,4 @@
-export class MailingOpenResponse {
+export class SpotlerMailingOpenResponse {
     paging: Paging;
     opens: undefined[];
 }

@@ -1,4 +1,4 @@
-export class MailingLink {
+export class SpotlerMailingLink {
     id: number;
     name: string;
     url: string;

@@ -1,4 +1,4 @@
-export class CampaignMailingBounce {
+export class SpotlerCampaignMailingBounce {
     contactIdentifier: ContactIdentifier;
     bounceDate: string;
     type: string;

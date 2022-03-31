@@ -1,4 +1,4 @@
-export class FormHistory {
+export class SpotlerFormHistory {
     form: Form;
     formResultId: number;
     submitDate: string;

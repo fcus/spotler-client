@@ -1,4 +1,4 @@
-export class MailingInteractionSent {
+export class SpotlerMailingInteractionSent {
     name: string;
     onlineVersionLink: string;
     subject: string;

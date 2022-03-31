@@ -1,3 +1,3 @@
-export class AddContactsToTemporaryListRequest {
+export class SpotlerAddContactsToTemporaryListRequest {
     contacts: string[];
 }

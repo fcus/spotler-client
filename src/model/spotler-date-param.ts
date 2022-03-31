@@ -1,3 +1,3 @@
-export class DateParam {
+export class SpotlerDateParam {
     date: string;
 }

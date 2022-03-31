@@ -1,4 +1,4 @@
-export class CampaignMailingHistoryResponse {
+export class SpotlerCampaignMailingHistoryResponse {
     paging: Paging;
     campaignMailingHistories: undefined[];
 }

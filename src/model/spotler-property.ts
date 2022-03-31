@@ -1,4 +1,4 @@
-export class Property {
+export class SpotlerProperty {
     name: string;
     description: string;
     type: string;

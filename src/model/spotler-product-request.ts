@@ -1,4 +1,4 @@
-export class ProductRequest {
+export class SpotlerProductRequest {
     update: boolean;
     product: Product;
 }

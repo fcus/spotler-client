@@ -1,4 +1,4 @@
-export class CampaignMailingClickResponse {
+export class SpotlerCampaignMailingClickResponse {
     paging: Paging;
     clicks: undefined[];
 }

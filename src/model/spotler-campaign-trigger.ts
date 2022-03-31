@@ -1,4 +1,4 @@
-export class CampaignTrigger {
+export class SpotlerCampaignTrigger {
     encryptedId: string;
     name: string;
 }

@@ -1,4 +1,4 @@
-export class Contact {
+export class SpotlerContact {
     externalId: string;
     created: string;
     encryptedId: string;

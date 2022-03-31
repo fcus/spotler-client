@@ -1,3 +1,3 @@
-export class ChangeContactsAudienceRequest {
+export class SpotlerChangeContactsAudienceRequest {
     contacts: string[];
 }

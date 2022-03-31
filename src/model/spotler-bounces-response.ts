@@ -1,4 +1,4 @@
-export class BouncesResponse {
+export class SpotlerBouncesResponse {
     paging: Paging;
     bounces: undefined[];
 }

@@ -63,6 +63,8 @@ interface Method {
     response: string;
 }
 
+const baseTypes = ['string', 'number', 'boolean'];
+
 function create() {
     const dir = 'lib';
 
@@ -73,8 +75,6 @@ function create() {
             })
             .replace(/\$/gm, ''),
     );
-
-    console.log(items);
 
     /**
      * Map to our interface
@@ -144,6 +144,21 @@ function create() {
             fs.writeFileSync(repositoryFilePath, '');
         }
 
+        const parameterTypes = repository.methods
+            .reduce((result: any, method: any) => {
+                const parameters = method.parameters
+                    .map((p: any) => replaceType(p.type))
+                    .filter((type: any) => !baseTypes.includes(type));
+
+                return [...result, ...parameters];
+            }, [])
+            .filter(
+                (type: string, index: number, types: string[]) =>
+                    types.indexOf(type) === index,
+            );
+
+        console.log(parameterTypes);
+
         const repositoryFile = project.createSourceFile(
             repositoryFilePath,
             '',
@@ -160,6 +175,12 @@ function create() {
             namedImports: ['SpotlerConfig'],
             moduleSpecifier: '../../shared/config/spotler-config',
         });
+        repositoryFile.addImportDeclarations(
+            parameterTypes.map(p => ({
+                namedImports: [upperFirst(camelCase('Spotler' + p))],
+                moduleSpecifier: `../../model/spotler-${kebabCase(p)}`,
+            })),
+        );
 
         const repositoryFileClass = repositoryFile.addClass({
             isExported: true,
@@ -195,7 +216,15 @@ function create() {
                             name: 'args',
                             type: `{
     ${method.parameters
-        .map(p => `${p.name}${p.required ? '' : '?'}: ${replaceType(p.type)}`)
+        .map(p => {
+            const cleanType = replaceType(p.type);
+            const parameterName = p.name;
+            const parameterType = baseTypes.includes(cleanType)
+                ? cleanType
+                : upperFirst(camelCase('Spotler' + cleanType));
+            const isRequired = p.required;
+            return `${parameterName}${isRequired ? '' : '?'}: ${parameterType}`;
+        })
         .join(',\n')}
 }`,
                         },
@@ -257,7 +286,7 @@ function create() {
         const modelClass = modelFile
             .addClass({
                 isExported: true,
-                name: upperFirst(camelCase(entityName)),
+                name: upperFirst(camelCase('Spotler' + entityName)),
             })
             .addProperties(
                 (Object.entries(entityValues.properties) ?? []).map(

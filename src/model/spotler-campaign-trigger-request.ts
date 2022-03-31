@@ -1,4 +1,4 @@
-export class CampaignTriggerRequest {
+export class SpotlerCampaignTriggerRequest {
     externalContactId: string;
     campaignFields: undefined[];
 }

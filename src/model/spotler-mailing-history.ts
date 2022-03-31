@@ -1,4 +1,4 @@
-export class MailingHistory {
+export class SpotlerMailingHistory {
     mailing: Mailing;
     sentDate: string;
     opened: boolean;

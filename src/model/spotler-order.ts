@@ -1,4 +1,4 @@
-export class Order {
+export class SpotlerOrder {
     externalId: string;
     externalContactId: string;
     date: string;

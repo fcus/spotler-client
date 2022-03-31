@@ -1,4 +1,4 @@
-export class Audience {
+export class SpotlerAudience {
     createDate: string;
     changeDate: string;
     lastContactAddedAt: string;

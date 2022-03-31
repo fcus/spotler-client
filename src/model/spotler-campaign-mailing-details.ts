@@ -1,4 +1,4 @@
-export class CampaignMailingDetails {
+export class SpotlerCampaignMailingDetails {
     encryptedId: string;
     name: string;
     type: string;

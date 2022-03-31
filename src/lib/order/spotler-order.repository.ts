@@ -1,5 +1,6 @@
 import { SpotlerBaseRepository } from '../../shared/base/spotler-base.repository';
 import { SpotlerConfig } from '../../shared/config/spotler-config';
+import { SpotlerOrderRequest } from '../../model/spotler-order-request';
 
 export class SpotlerOrderRepository extends SpotlerBaseRepository {
     protected readonly resource = 'order';
@@ -17,7 +18,7 @@ export class SpotlerOrderRepository extends SpotlerBaseRepository {
     }
 
     async insertOrder(args: {
-            body: OrderRequest
+            body: SpotlerOrderRequest
         }) {
         return this.post({
             endpoint: ``,
@@ -27,7 +28,7 @@ export class SpotlerOrderRepository extends SpotlerBaseRepository {
 
     async updateOrder(args: {
             externalOrderId: string,
-        body: OrderRequest
+        body: SpotlerOrderRequest
         }) {
         return this.put({
             endpoint: `/${args.externalOrderId}`,

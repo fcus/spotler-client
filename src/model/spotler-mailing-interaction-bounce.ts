@@ -1,4 +1,4 @@
-export class MailingInteractionBounce {
+export class SpotlerMailingInteractionBounce {
     bounceType: string;
     encryptedMailingId: string;
     trendReportId: number;

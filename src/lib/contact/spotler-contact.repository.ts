@@ -1,5 +1,7 @@
 import { SpotlerBaseRepository } from '../../shared/base/spotler-base.repository';
 import { SpotlerConfig } from '../../shared/config/spotler-config';
+import { SpotlerContactRequest } from '../../model/spotler-contact-request';
+import { SpotlerAddContactsRequest } from '../../model/spotler-add-contacts-request';
 
 export class SpotlerContactRepository extends SpotlerBaseRepository {
     protected readonly resource = 'contact';
@@ -106,7 +108,7 @@ export class SpotlerContactRepository extends SpotlerBaseRepository {
     }
 
     async insertContact(args: {
-            body: ContactRequest
+            body: SpotlerContactRequest
         }) {
         return this.post({
             endpoint: ``,
@@ -115,7 +117,7 @@ export class SpotlerContactRepository extends SpotlerBaseRepository {
     }
 
     async insertContacts(args: {
-            body: AddContactsRequest
+            body: SpotlerAddContactsRequest
         }) {
         return this.post({
             endpoint: `/list`,
@@ -139,7 +141,7 @@ export class SpotlerContactRepository extends SpotlerBaseRepository {
     }
 
     async updateContact(args: {
-            body: ContactRequest,
+            body: SpotlerContactRequest,
         externalId: string
         }) {
         return this.put({

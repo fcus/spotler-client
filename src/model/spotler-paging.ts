@@ -1,4 +1,4 @@
-export class Paging {
+export class SpotlerPaging {
     next: string;
     after: number;
 }

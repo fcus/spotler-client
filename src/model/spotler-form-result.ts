@@ -1,4 +1,4 @@
-export class FormResult {
+export class SpotlerFormResult {
     formResultId: number;
     submittedAt: string;
     testResult: boolean;

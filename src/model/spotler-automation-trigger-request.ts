@@ -1,3 +1,3 @@
-export class AutomationTriggerRequest {
+export class SpotlerAutomationTriggerRequest {
     externalContactId: string;
 }

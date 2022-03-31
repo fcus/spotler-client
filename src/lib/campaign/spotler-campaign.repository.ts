@@ -1,5 +1,7 @@
 import { SpotlerBaseRepository } from '../../shared/base/spotler-base.repository';
 import { SpotlerConfig } from '../../shared/config/spotler-config';
+import { SpotlerCampaignStopRequest } from '../../model/spotler-campaign-stop-request';
+import { SpotlerCampaignTriggerRequest } from '../../model/spotler-campaign-trigger-request';
 
 export class SpotlerCampaignRepository extends SpotlerBaseRepository {
     protected readonly resource = 'campaign';
@@ -26,7 +28,7 @@ export class SpotlerCampaignRepository extends SpotlerBaseRepository {
 
     async stopCampaign(args: {
             encryptedCampaignId: string,
-        body: CampaignStopRequest
+        body: SpotlerCampaignStopRequest
         }) {
         return this.post({
             endpoint: `/${args.encryptedCampaignId}/stop`,
@@ -36,7 +38,7 @@ export class SpotlerCampaignRepository extends SpotlerBaseRepository {
 
     async triggerCampaign(args: {
             encryptedTriggerId: string,
-        body: CampaignTriggerRequest
+        body: SpotlerCampaignTriggerRequest
         }) {
         return this.post({
             endpoint: `/trigger/${args.encryptedTriggerId}`,

@@ -1,4 +1,4 @@
-export class TrendReport {
+export class SpotlerTrendReport {
     id: number;
     name: string;
     enabled: boolean;

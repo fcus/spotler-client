@@ -1,4 +1,4 @@
-export class FormElementResult {
+export class SpotlerFormElementResult {
     rank: number;
     fieldId: number;
     description: string;

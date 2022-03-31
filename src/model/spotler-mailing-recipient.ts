@@ -1,3 +1,3 @@
-export class MailingRecipient {
+export class SpotlerMailingRecipient {
     contactIdentifier: ContactIdentifier;
 }

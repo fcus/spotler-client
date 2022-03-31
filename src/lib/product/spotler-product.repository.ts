@@ -1,5 +1,6 @@
 import { SpotlerBaseRepository } from '../../shared/base/spotler-base.repository';
 import { SpotlerConfig } from '../../shared/config/spotler-config';
+import { SpotlerProductRequest } from '../../model/spotler-product-request';
 
 export class SpotlerProductRepository extends SpotlerBaseRepository {
     protected readonly resource = 'product';
@@ -33,7 +34,7 @@ export class SpotlerProductRepository extends SpotlerBaseRepository {
     }
 
     async insertProduct(args: {
-            body: ProductRequest
+            body: SpotlerProductRequest
         }) {
         return this.post({
             endpoint: ``,
@@ -58,7 +59,7 @@ export class SpotlerProductRepository extends SpotlerBaseRepository {
 
     async updateProduct(args: {
             externalProductId: string,
-        body: ProductRequest
+        body: SpotlerProductRequest
         }) {
         return this.put({
             endpoint: `/${args.externalProductId}`,

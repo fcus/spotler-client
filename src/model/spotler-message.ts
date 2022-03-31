@@ -1,4 +1,4 @@
-export class Message {
+export class SpotlerMessage {
     name: string;
     author: string;
     subject: string;

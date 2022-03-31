@@ -1,4 +1,4 @@
-export class AddContactsRequest {
+export class SpotlerAddContactsRequest {
     update: boolean;
     purge: boolean;
     contacts: undefined[];

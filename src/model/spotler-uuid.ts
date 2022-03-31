@@ -1,4 +1,4 @@
-export class Uuid {
+export class SpotlerUuid {
     leastSignificantBits: number;
     mostSignificantBits: number;
 }

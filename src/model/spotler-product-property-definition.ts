@@ -1,3 +1,3 @@
-export class ProductPropertyDefinition {
+export class SpotlerProductPropertyDefinition {
     name: string;
 }

@@ -1,4 +1,4 @@
-export class ExternalTriggerValidationResult {
+export class SpotlerExternalTriggerValidationResult {
     result: ExternalTriggerResponse;
     automationResults: undefined[];
 }

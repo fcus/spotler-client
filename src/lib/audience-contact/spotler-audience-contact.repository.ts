@@ -1,5 +1,6 @@
 import { SpotlerBaseRepository } from '../../shared/base/spotler-base.repository';
 import { SpotlerConfig } from '../../shared/config/spotler-config';
+import { SpotlerChangeContactsAudienceRequest } from '../../model/spotler-change-contacts-audience-request';
 
 export class SpotlerAudienceContactRepository extends SpotlerBaseRepository {
     protected readonly resource = 'audience-contact';
@@ -10,7 +11,7 @@ export class SpotlerAudienceContactRepository extends SpotlerBaseRepository {
 
     async addContactsAudience(args: {
             externalId: string,
-        body: ChangeContactsAudienceRequest
+        body: SpotlerChangeContactsAudienceRequest
         }) {
         return this.post({
             endpoint: `/audience/${args.externalId}/contact`,
@@ -20,7 +21,7 @@ export class SpotlerAudienceContactRepository extends SpotlerBaseRepository {
 
     async removeContactsAudience(args: {
             externalId: string,
-        body?: ChangeContactsAudienceRequest
+        body?: SpotlerChangeContactsAudienceRequest
         }) {
         return this.delete({
             endpoint: `/audience/${args.externalId}/contact`,

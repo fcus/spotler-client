@@ -1,4 +1,4 @@
-export class SentMailingInteractionResponse {
+export class SpotlerSentMailingInteractionResponse {
     paging: Paging;
     interactions: undefined[];
 }

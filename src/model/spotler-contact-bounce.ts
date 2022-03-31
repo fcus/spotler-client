@@ -1,4 +1,4 @@
-export class ContactBounce {
+export class SpotlerContactBounce {
     date: string;
     type: Type;
     contact: Contact;

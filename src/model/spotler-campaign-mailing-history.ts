@@ -1,4 +1,4 @@
-export class CampaignMailingHistory {
+export class SpotlerCampaignMailingHistory {
     campaignMailing: CampaignMailing;
     campaignSubscriptionId: number;
     sentDate: string;

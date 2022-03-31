@@ -1,4 +1,4 @@
-export class ErrorResponse {
+export class SpotlerErrorResponse {
     errorType: ErrorType;
     message: string;
 }

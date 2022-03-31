@@ -1,4 +1,4 @@
-export class MailingStats {
+export class SpotlerMailingStats {
     sentCount: number;
     acceptedCount: number;
     openCount: number;

@@ -1,4 +1,4 @@
-export class Form {
+export class SpotlerForm {
     id: number;
     name: string;
     formSubType: string;

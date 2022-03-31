@@ -1,4 +1,4 @@
-export class MailingRecipientResponse {
+export class SpotlerMailingRecipientResponse {
     paging: Paging;
     recipients: undefined[];
 }

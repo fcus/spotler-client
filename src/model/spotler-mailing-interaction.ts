@@ -1,4 +1,4 @@
-export class MailingInteraction {
+export class SpotlerMailingInteraction {
     id: number;
     externalContactId: string;
     encryptedMailingId: string;

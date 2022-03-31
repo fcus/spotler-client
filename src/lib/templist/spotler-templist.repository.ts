@@ -1,5 +1,7 @@
 import { SpotlerBaseRepository } from '../../shared/base/spotler-base.repository';
 import { SpotlerConfig } from '../../shared/config/spotler-config';
+import { SpotlerAddContactsToTemporaryListRequest } from '../../model/spotler-add-contacts-to-temporary-list-request';
+import { SpotlerCreateTemporaryListRequest } from '../../model/spotler-create-temporary-list-request';
 
 export class SpotlerTemplistRepository extends SpotlerBaseRepository {
     protected readonly resource = 'templist';
@@ -10,7 +12,7 @@ export class SpotlerTemplistRepository extends SpotlerBaseRepository {
 
     async addContactsToTemporaryList(args: {
             externalTemporaryListId: string,
-        body: AddContactsToTemporaryListRequest
+        body: SpotlerAddContactsToTemporaryListRequest
         }) {
         return this.post({
             endpoint: `/${args.externalTemporaryListId}`,
@@ -19,7 +21,7 @@ export class SpotlerTemplistRepository extends SpotlerBaseRepository {
     }
 
     async createTemporaryList(args: {
-            body: CreateTemporaryListRequest
+            body: SpotlerCreateTemporaryListRequest
         }) {
         return this.post({
             endpoint: ``,

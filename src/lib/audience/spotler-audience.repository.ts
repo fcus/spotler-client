@@ -1,5 +1,7 @@
 import { SpotlerBaseRepository } from '../../shared/base/spotler-base.repository';
 import { SpotlerConfig } from '../../shared/config/spotler-config';
+import { SpotlerCreateAudienceRequest } from '../../model/spotler-create-audience-request';
+import { SpotlerAudience } from '../../model/spotler-audience';
 
 export class SpotlerAudienceRepository extends SpotlerBaseRepository {
     protected readonly resource = 'audience';
@@ -25,7 +27,7 @@ export class SpotlerAudienceRepository extends SpotlerBaseRepository {
     }
 
     async insertAudience(args: {
-            body: CreateAudienceRequest
+            body: SpotlerCreateAudienceRequest
         }) {
         return this.post({
             endpoint: ``,
@@ -35,7 +37,7 @@ export class SpotlerAudienceRepository extends SpotlerBaseRepository {
 
     async updateAudience(args: {
             externalId: string,
-        body: Audience
+        body: SpotlerAudience
         }) {
         return this.put({
             endpoint: `/${args.externalId}`,

@@ -1,4 +1,4 @@
-export class CampaignField {
+export class SpotlerCampaignField {
     name: string;
     type: string;
     values: string[];

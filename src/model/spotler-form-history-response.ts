@@ -1,4 +1,4 @@
-export class FormHistoryResponse {
+export class SpotlerFormHistoryResponse {
     paging: Paging;
     formHistories: undefined[];
 }

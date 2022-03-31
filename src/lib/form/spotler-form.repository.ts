@@ -1,5 +1,8 @@
 import { SpotlerBaseRepository } from '../../shared/base/spotler-base.repository';
 import { SpotlerConfig } from '../../shared/config/spotler-config';
+import { SpotlerDateParam } from '../../model/spotler-date-param';
+import { SpotlerFormRequest } from '../../model/spotler-form-request';
+import { SpotlerParams } from '../../model/spotler-params';
 
 export class SpotlerFormRepository extends SpotlerBaseRepository {
     protected readonly resource = 'form';
@@ -40,8 +43,8 @@ export class SpotlerFormRepository extends SpotlerBaseRepository {
     async getFormResults(args: {
             formId: number,
         completed?: boolean,
-        startDate?: DateParam,
-        endDate?: DateParam
+        startDate?: SpotlerDateParam,
+        endDate?: SpotlerDateParam
         }) {
         return this.get({
             endpoint: `/result/${args.formId}`,
@@ -68,7 +71,7 @@ export class SpotlerFormRepository extends SpotlerBaseRepository {
 
     async postForm(args: {
             formId: number,
-        body: FormRequest
+        body: SpotlerFormRequest
         }) {
         return this.post({
             endpoint: `/${args.formId}`,
@@ -78,7 +81,7 @@ export class SpotlerFormRepository extends SpotlerBaseRepository {
 
     async submitForm(args: {
             formId: number,
-        body: Params
+        body: SpotlerParams
         }) {
         return this.post({
             endpoint: `/result/${args.formId}`,

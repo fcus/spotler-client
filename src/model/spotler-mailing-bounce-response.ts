@@ -1,4 +1,4 @@
-export class MailingBounceResponse {
+export class SpotlerMailingBounceResponse {
     paging: Paging;
     bounces: undefined[];
 }

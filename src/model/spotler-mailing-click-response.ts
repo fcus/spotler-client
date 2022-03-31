@@ -1,4 +1,4 @@
-export class MailingClickResponse {
+export class SpotlerMailingClickResponse {
     paging: Paging;
     clicks: undefined[];
 }

@@ -1,4 +1,4 @@
-export class Product {
+export class SpotlerProduct {
     externalId: string;
     name: string;
     description: string;

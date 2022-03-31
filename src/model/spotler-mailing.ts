@@ -1,4 +1,4 @@
-export class Mailing {
+export class SpotlerMailing {
     encryptedId: string;
     name: string;
     scheduledStartDate: string;

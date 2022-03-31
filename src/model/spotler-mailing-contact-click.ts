@@ -1,4 +1,4 @@
-export class MailingContactClick {
+export class SpotlerMailingContactClick {
     clickDate: string;
     linkId: number;
 }

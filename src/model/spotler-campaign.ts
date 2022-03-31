@@ -1,4 +1,4 @@
-export class Campaign {
+export class SpotlerCampaign {
     encryptedId: string;
     name: string;
     active: boolean;

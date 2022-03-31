@@ -1,4 +1,4 @@
-export class FormRequest {
+export class SpotlerFormRequest {
     postUrl: string;
     encId: string;
     extraParams: string;
