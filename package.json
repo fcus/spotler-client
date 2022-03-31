@@ -1,12 +1,13 @@
 {
   "name": "@fcus/spotler-client",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Node.js client for the Spotler REST API. Made with Typescript",
   "main": "index.js",
   "scripts": {
     "build": "rm -rf dist && tsc",
     "coverage": "c8 ava",
     "coverage:check": "c8 --100 ava",
+    "prepublish": "npm run build",
     "setup": "cp .env-example .env",
     "test": "ava"
   },
