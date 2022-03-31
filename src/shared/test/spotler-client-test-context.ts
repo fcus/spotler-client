@@ -1,15 +1,15 @@
 import { ExecutionContext } from 'ava';
 import dotenv from 'dotenv';
-import { SpotlerClientConfig } from '../config/spotler-client-config';
+import { SpotlerConfig } from '../config/spotler-config';
 
 dotenv.config();
 
 export interface SpotlerClientTestContext {
-    config: SpotlerClientConfig;
+    config: SpotlerConfig;
 }
 
 export function spotlerClientTestContext(t: ExecutionContext<any>): any {
-    const config = new SpotlerClientConfig({
+    const config = new SpotlerConfig({
         consumerKey: process.env.CONSUMER_KEY ?? '',
         consumerSecret: process.env.CONSUMER_SECRET ?? '',
     });

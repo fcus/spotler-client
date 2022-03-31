@@ -2,6 +2,14 @@
 
 Node.js Spotler client made with Typescript. 
 
+## Important
+
+This library is in development. It won't offer all of the endpoints the Spotler API offers, nor is it tried and tested
+
+## Installation
+
+- `npm i @fcus/spotler-client`
+
 ## Checklist
 
 - [x] Set up tests
@@ -10,7 +18,9 @@ Node.js Spotler client made with Typescript.
 - [x] Extract OAuth 1.0a header solution as separate package and import
 - [x] Create simple GET endpoint
 - [x] Create basic interface test check
+- [x] Scan the OpenAPI document to match all interfaces
+- [ ] Publish beta version to NPM
 - [ ] Create GET endpoint with params
 - [ ] Create POST & Put endpoints
-- [ ] Scan the OpenAPI document to match all interfaces
-- [ ] Set version 1.0.0 and publish to NPM
+- [ ] Write tests for all features
+- [ ] Set version 1.0.0
