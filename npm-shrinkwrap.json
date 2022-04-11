@@ -1,12 +1,12 @@
 {
   "name": "@fcus/spotler-client",
-  "version": "0.1.5",
+  "version": "0.1.7",
   "lockfileVersion": 2,
   "requires": true,
   "packages": {
     "": {
       "name": "@fcus/spotler-client",
-      "version": "0.1.5",
+      "version": "0.1.7",
       "license": "MIT",
       "dependencies": {
         "@fcus/oauth-1-header": "^0.3.0",
@@ -35,13 +35,10 @@
       "dev": true
     },
     "node_modules/@fcus/oauth-1-header": {
-      "version": "0.3.0",
-      "resolved": "https://registry.npmjs.org/@fcus/oauth-1-header/-/oauth-1-header-0.3.0.tgz",
-      "integrity": "sha512-QpClSWcmJlV51Oz7xyWHNEqAwJ1D3CqqE5bxReZLc6ExJ70tJmp180JwneHYcNHq84D6X5bAmD1NuMeQRmn1sA==",
-      "hasShrinkwrap": true,
-      "engines": {
-        "node": ">=14.0.0"
-      }
+      "version": "0.3.1",
+      "resolved": "https://registry.npmjs.org/@fcus/oauth-1-header/-/oauth-1-header-0.3.1.tgz",
+      "integrity": "sha512-tQPTvzgi6sDLo+CJXGkqqCvl5uaNw5n6Rg6bkHzo7+81XKL2jZC2iLQCsPE5nBdv7QvA5nOmsBNNY6ZLeXvhsA==",
+      "hasShrinkwrap": true
     },
     "node_modules/@fcus/oauth-1-header/node_modules/@bcoe/v8-coverage": {
       "version": "0.2.3",
@@ -5360,9 +5357,9 @@
       "dev": true
     },
     "@fcus/oauth-1-header": {
-      "version": "0.3.0",
-      "resolved": "https://registry.npmjs.org/@fcus/oauth-1-header/-/oauth-1-header-0.3.0.tgz",
-      "integrity": "sha512-QpClSWcmJlV51Oz7xyWHNEqAwJ1D3CqqE5bxReZLc6ExJ70tJmp180JwneHYcNHq84D6X5bAmD1NuMeQRmn1sA==",
+      "version": "0.3.1",
+      "resolved": "https://registry.npmjs.org/@fcus/oauth-1-header/-/oauth-1-header-0.3.1.tgz",
+      "integrity": "sha512-tQPTvzgi6sDLo+CJXGkqqCvl5uaNw5n6Rg6bkHzo7+81XKL2jZC2iLQCsPE5nBdv7QvA5nOmsBNNY6ZLeXvhsA==",
       "dependencies": {
         "@bcoe/v8-coverage": {
           "version": "0.2.3",
