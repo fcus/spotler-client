@@ -104,10 +104,21 @@ export abstract class SpotlerBaseRepository {
             };
 
             const r = request(options, result => {
+                let data = '';
+
                 result.setEncoding('utf8');
 
                 result.on('data', d => {
-                    resolve(JSON.parse(d));
+                    data += d;
+                });
+
+                result.on('end', () => {
+                    try {
+                        const json = JSON.parse(data);
+                        resolve(json);
+                    } catch (exception) {
+                        reject(exception);
+                    }
                 });
             });
 
