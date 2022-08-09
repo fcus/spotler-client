@@ -1,3 +1,4 @@
+import { SpotlerCampaignMailing } from '../../model/spotler-campaign-mailing';
 import { SpotlerBaseRepository } from '../../shared/base/spotler-base.repository';
 import { SpotlerConfig } from '../../shared/config/spotler-config';
 
@@ -24,6 +25,12 @@ export class SpotlerCampaignMailingRepository extends SpotlerBaseRepository {
                 toDate: args.toDate,
             },
         }) as Promise<any[]>;
+    }
+
+    async getCampaingMailing(args: { encryptedMailingId: string }) {
+        return this.get({
+            endpoint: `${args.encryptedMailingId}`,
+        }) as Promise<SpotlerCampaignMailing>;
     }
 
     async getCampaignMailingContactClicks(args: {
