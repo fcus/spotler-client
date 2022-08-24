@@ -27,12 +27,6 @@ export class SpotlerCampaignMailingRepository extends SpotlerBaseRepository {
         }) as Promise<any[]>;
     }
 
-    async getCampaingMailing(args: { encryptedMailingId: string }) {
-        return this.get({
-            endpoint: `${args.encryptedMailingId}`,
-        }) as Promise<SpotlerCampaignMailing>;
-    }
-
     async getCampaignMailingContactClicks(args: {
         encryptedMailingId: string;
         campaignSubscriptionId: number;
@@ -92,7 +86,7 @@ export class SpotlerCampaignMailingRepository extends SpotlerBaseRepository {
     async getCampaignMailingsDetails(args: { encryptedMailingId: string }) {
         return this.get({
             endpoint: `${args.encryptedMailingId}`,
-        }) as Promise<any[]>;
+        }) as Promise<SpotlerCampaignMailing>;
     }
 
     async getClicks(args: {
