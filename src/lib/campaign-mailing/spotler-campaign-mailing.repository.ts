@@ -1,4 +1,8 @@
 import { SpotlerCampaignMailing } from '../../model/spotler-campaign-mailing';
+import { SpotlerCampaignMailingBounceResponse } from '../../model/spotler-campaign-mailing-bounce-response';
+import { SpotlerCampaignMailingClickResponse } from '../../model/spotler-campaign-mailing-click-response';
+import { SpotlerCampaignMailingOpenResponse } from '../../model/spotler-campaign-mailing-open-response';
+import { SpotlerCampaignMailingRecipientResponse } from '../../model/spotler-campaign-mailing-recipient-response';
 import { SpotlerBaseRepository } from '../../shared/base/spotler-base.repository';
 import { SpotlerConfig } from '../../shared/config/spotler-config';
 
@@ -24,7 +28,7 @@ export class SpotlerCampaignMailingRepository extends SpotlerBaseRepository {
                 fromDate: args.fromDate,
                 toDate: args.toDate,
             },
-        }) as Promise<any[]>;
+        }) as Promise<SpotlerCampaignMailingBounceResponse>;
     }
 
     async getCampaignMailingContactClicks(args: {
@@ -43,7 +47,7 @@ export class SpotlerCampaignMailingRepository extends SpotlerBaseRepository {
                 fromDate: args.fromDate,
                 toDate: args.toDate,
             },
-        }) as Promise<any[]>;
+        }) as Promise<SpotlerCampaignMailingClickResponse>;
     }
 
     async getCampaignMailingContactOpens(args: {
@@ -62,7 +66,7 @@ export class SpotlerCampaignMailingRepository extends SpotlerBaseRepository {
                 fromDate: args.fromDate,
                 toDate: args.toDate,
             },
-        }) as Promise<any[]>;
+        }) as Promise<SpotlerCampaignMailingOpenResponse>;
     }
 
     async getCampaignMailingOpens(args: {
@@ -104,7 +108,7 @@ export class SpotlerCampaignMailingRepository extends SpotlerBaseRepository {
                 fromDate: args.fromDate,
                 toDate: args.toDate,
             },
-        }) as Promise<any[]>;
+        }) as Promise<SpotlerCampaignMailingClickResponse>;
     }
 
     async getMailedContacts(args: {
@@ -122,6 +126,6 @@ export class SpotlerCampaignMailingRepository extends SpotlerBaseRepository {
                 fromDate: args.fromDate,
                 toDate: args.toDate,
             },
-        }) as Promise<any[]>;
+        }) as Promise<SpotlerCampaignMailingRecipientResponse>;
     }
 }
