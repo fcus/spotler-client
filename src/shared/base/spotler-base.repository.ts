@@ -9,8 +9,9 @@ export interface SpotlerBaseRepositoryArgs {
     query?: { [keyof: string]: any };
 }
 
-export interface SpotlerBaseRepositoryPostPutArgs<T>
-    extends SpotlerBaseRepositoryArgs {
+export interface SpotlerBaseRepositoryPostPutArgs<
+    T,
+> extends SpotlerBaseRepositoryArgs {
     body: T;
 }
 
@@ -114,6 +115,11 @@ export abstract class SpotlerBaseRepository {
 
                 result.on('end', () => {
                     try {
+                        if (!data) {
+                            resolve(null);
+                            return;
+                        }
+
                         const json = JSON.parse(data);
                         resolve(json);
                     } catch (exception) {
@@ -125,6 +131,10 @@ export abstract class SpotlerBaseRepository {
             r.on('error', error => {
                 reject(error);
             });
+
+            if (args.body) {
+                r.write(JSON.stringify(args.body));
+            }
 
             r.end();
         });
