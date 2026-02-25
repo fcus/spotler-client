@@ -82,6 +82,7 @@ export abstract class SpotlerBaseRepository {
                     method: args.method,
                     url: `https://${this.baseUrl}/${this.apiPath}/${args.endpoint}`,
                     query: args.query,
+                    body: args.body as any,
                 },
                 {
                     consumer: {
